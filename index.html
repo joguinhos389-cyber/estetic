@@ -3,152 +3,234 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conheça nossa clínica de estética e entre em contato para saber mais sobre nossos serviços.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conheça nossa clínica de estética e entre em contato.">
+  <meta name="theme-color" content="#40313f">
   <title>Clínica de Estética | Seu cuidado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #704b68;
-      --dark: #352a34;
-      --light: #fbf7f8;
-      --accent: #e9d9e3;
-      --text: #514650;
-      --white: #ffffff;
+      --wine: #493448;
+      --plum: #805d78;
+      --rose: #ead9e1;
+      --cream: #faf6f3;
+      --paper: #fffdfb;
+      --ink: #3b3039;
+      --muted: #756871;
+      --line: #e9dfe5;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
+      font-family: "DM Sans", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
       line-height: 1.7;
     }
 
+    img { display: block; max-width: 100%; }
+
     a { color: inherit; text-decoration: none; }
 
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container { width: min(1160px, 90%); margin: auto; }
+
+    .serif { font-family: "Playfair Display", Georgia, serif; }
+
+    .topline { height: 4px; background: var(--plum); }
 
     header {
-      background: var(--white);
-      border-bottom: 1px solid #eee7eb;
+      background: rgba(255,253,251,.96);
+      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
     }
 
     nav {
-      min-height: 76px;
+      min-height: 82px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 24px;
     }
 
-    .logo {
-      color: var(--primary);
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .brand { line-height: 1.2; }
+
+    .brand strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: 1.7px;
+      color: var(--wine);
     }
 
-    .nav-links {
+    .brand span {
+      font-size: .68rem;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .navlinks {
       display: flex;
       align-items: center;
       gap: 25px;
-      font-size: .9rem;
+      font-size: .88rem;
     }
 
-    .button {
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 30px;
-      background: var(--primary);
-      color: var(--white);
+    .navlinks > a:not(.btn):hover { color: var(--plum); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border-radius: 3px;
+      background: var(--wine);
+      color: white;
+      font-size: .88rem;
       font-weight: 600;
-      transition: opacity .2s;
+      transition: background .2s, transform .2s;
     }
 
-    .button:hover { opacity: .85; }
+    .btn:hover { background: var(--plum); transform: translateY(-1px); }
+
+    .btn-light { background: var(--paper); color: var(--wine); }
 
     .hero {
-      background: var(--light);
-      padding: 90px 0;
+      background: var(--cream);
+      padding: 68px 0 78px;
+      overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr .88fr;
+      gap: 72px;
       align-items: center;
-      gap: 60px;
     }
 
     .eyebrow {
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: .78rem;
+      color: var(--plum);
+      font-size: .73rem;
       font-weight: 700;
-    }
-
-    h1, h2 {
-      color: var(--dark);
-      line-height: 1.2;
-      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
     }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 4.3rem);
-      margin: 18px 0;
+      font-size: clamp(2.8rem, 5.6vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -1.7px;
+      font-weight: 400;
+      color: var(--wine);
+      margin: 22px 0;
     }
 
-    h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      margin: 12px 0 20px;
+    h1 em { color: var(--plum); font-weight: 400; }
+
+    .hero-copy > p {
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 30px;
     }
 
-    .hero p { max-width: 530px; margin-bottom: 28px; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
 
-    .hero-image {
-      min-height: 410px;
-      border-radius: 180px 180px 22px 22px;
-      background: var(--accent);
-      display: flex;
+    .textlink {
+      font-size: .9rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--plum);
+      padding-bottom: 4px;
+    }
+
+    .hero-visual { position: relative; padding: 0 0 28px 22px; }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -18px;
+      width: 56%;
+      height: 55%;
+      background: var(--rose);
+      z-index: 0;
+    }
+
+    .hero-visual img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 160px 160px 3px 3px;
+    }
+
+    .image-note {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 17px 23px;
+      max-width: 245px;
+      box-shadow: 0 12px 30px #49344812;
+    }
+
+    .image-note strong { display: block; color: var(--wine); font-size: .85rem; }
+    .image-note span { color: var(--muted); font-size: .78rem; }
+
+    section { padding: 90px 0; }
+
+    .sectionhead { max-width: 660px; margin: 0 auto 45px; text-align: center; }
+
+    .sectionhead h2, .about-copy h2, .contact-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--wine);
+      margin: 13px 0 17px;
+    }
+
+    .sectionhead p, .about-copy > p, .contact-copy > p {
+      color: var(--muted);
+      font-size: .97rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .85fr 1fr;
+      gap: 75px;
       align-items: center;
-      justify-content: center;
-      padding: 35px;
-      text-align: center;
-      color: var(--primary);
     }
 
-    .hero-image span {
-      max-width: 230px;
-      font-size: 1rem;
+    .about-image {
+      position: relative;
+      background: var(--rose);
+      padding: 18px;
     }
 
-    section { padding: 82px 0; }
-
-    .section-heading {
-      max-width: 650px;
-      margin: 0 auto 42px;
-      text-align: center;
+    .about-image img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
     }
 
-    .section-heading p { margin-top: 12px; }
+    .about-copy > p { margin-bottom: 24px; }
 
-    .about {
-      text-align: center;
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .services { background: var(--light); }
+    .services { background: var(--cream); }
 
     .cards {
       display: grid;
@@ -157,129 +239,118 @@
     }
 
     .card {
-      padding: 28px;
-      border-radius: 18px;
-      background: var(--white);
-      border: 1px solid #eee7eb;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 30px;
+      transition: transform .2s, box-shadow .2s;
     }
 
-    .card .number {
-      color: var(--primary);
-      font-size: .85rem;
-      letter-spacing: 1px;
-    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px #4934480c; }
 
-    .card h3 {
-      color: var(--dark);
-      margin: 12px 0;
-      font-size: 1.15rem;
-    }
+    .card-number { color: var(--plum); font-size: .76rem; letter-spacing: 2px; }
+
+    .card h3 { font-family: "Playfair Display", serif; font-size: 1.45rem; font-weight: 500; margin: 16px 0 10px; color: var(--wine); }
+
+    .card p { color: var(--muted); font-size: .9rem; }
+
+    .contact { background: var(--wine); color: white; }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 45px;
+      gap: 70px;
+      align-items: start;
     }
 
-    .contact-info p { margin: 12px 0; }
+    .contact .eyebrow { color: #d9b8cc; }
 
-    .hours {
-      background: var(--light);
-      border-radius: 18px;
-      padding: 28px;
-    }
+    .contact-copy h2 { color: white; }
 
-    .hours h3 { color: var(--dark); margin-bottom: 15px; }
+    .contact-copy > p { color: #e1d4df; margin-bottom: 25px; }
 
-    .hours p {
+    .contact-detail { padding: 15px 0; border-bottom: 1px solid #ffffff25; }
+
+    .contact-detail small { display: block; color: #d9b8cc; margin-bottom: 3px; }
+
+    .contact-detail a, .contact-detail span { overflow-wrap: anywhere; }
+
+    .hours-box { background: var(--paper); color: var(--ink); padding: 30px; }
+
+    .hours-box h3 { font-family: "Playfair Display", serif; font-size: 1.7rem; color: var(--wine); margin-bottom: 15px; }
+
+    .hours-row {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
-      border-bottom: 1px solid #e8dfe5;
-      padding: 9px 0;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: .88rem;
     }
 
-    .faq { background: var(--light); }
+    .hours-row:last-child { border-bottom: 0; }
 
-    details {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 19px 22px;
-      margin: 12px 0;
+    .faq { background: var(--cream); }
+
+    .faq-list { max-width: 800px; margin: auto; }
+
+    details { border-bottom: 1px solid var(--line); padding: 21px 0; }
+
+    summary { cursor: pointer; color: var(--wine); font-weight: 600; list-style-position: outside; }
+
+    details p { padding-top: 13px; color: var(--muted); }
+
+    .closing { background: var(--rose); text-align: center; padding: 70px 20px; }
+
+    .closing h2 { font-size: clamp(2rem, 4vw, 3.3rem); font-weight: 400; color: var(--wine); margin-bottom: 12px; }
+
+    .closing p { color: var(--muted); margin-bottom: 25px; }
+
+    footer { background: #302430; color: #eee3eb; padding: 35px 0; }
+
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    footer p, footer a { font-size: .82rem; color: #d5c5d1; }
+
+    footer strong { color: white; letter-spacing: 1px; }
+
+    @media (max-width: 800px) {
+      nav { min-height: 0; padding: 18px 0; align-items: flex-start; flex-direction: column; gap: 17px; }
+      .navlinks { gap: 12px 18px; flex-wrap: wrap; font-size: .82rem; }
+      .navlinks .btn { padding: 9px 13px; }
+      .hero { padding: 52px 0 60px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { margin: 0 6px; }
+      .hero-visual img { height: 370px; }
+      .cards { grid-template-columns: 1fr; gap: 14px; }
+      section { padding: 65px 0; }
+      .about-grid { gap: 32px; }
+      .about-image img { height: 290px; }
+      .contact-grid { gap: 32px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
 
-    summary {
-      cursor: pointer;
-      color: var(--dark);
-      font-weight: 600;
-    }
-
-    details p { padding-top: 12px; }
-
-    .final-cta {
-      background: var(--primary);
-      color: var(--white);
-      text-align: center;
-      padding: 65px 20px;
-    }
-
-    .final-cta h2 { color: var(--white); }
-
-    .final-cta .button {
-      background: var(--white);
-      color: var(--primary);
-      margin-top: 20px;
-    }
-
-    footer {
-      background: var(--dark);
-      color: var(--white);
-      padding: 32px 0;
-      text-align: center;
-      font-size: .9rem;
-    }
-
-    footer p { margin: 5px 0; }
-
-    @media (max-width: 760px) {
-      nav {
-        padding: 18px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 12px 18px;
-      }
-
-      .hero { padding: 60px 0; }
-
-      .hero-grid, .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .hero-image { min-height: 290px; }
-
-      section { padding: 60px 0; }
-
-      .cards { grid-template-columns: 1fr; }
-
-      .hours p { font-size: .9rem; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 
 <body>
+  <div class="topline"></div>
+
   <header>
     <nav class="container">
-      <a href="#inicio" class="logo">NOME DA CLÍNICA</a>
-      <div class="nav-links">
+      <a class="brand" href="#inicio">
+        <strong>NOME DA CLÍNICA</strong>
+        <span>Estética & cuidado</span>
+      </a>
+
+      <div class="navlinks">
         <a href="#sobre">A clínica</a>
         <a href="#servicos">Serviços</a>
         <a href="#contato">Contato</a>
-        <a href="#contato" class="button">Fale conosco</a>
+        <a class="btn" href="#contato">Vamos conversar ↗</a>
       </div>
     </nav>
   </header>
@@ -287,90 +358,131 @@
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Cuidado pensado para você</span>
-          <h1>Sua rotina merece um momento de cuidado.</h1>
+        <div class="hero-copy">
+          <span class="eyebrow">Um momento para você</span>
+          <h1 class="serif">Seu cuidado.<br><em>Sua essência.</em></h1>
           <p>
-            Conheça nossa clínica e descubra as opções de atendimento
-            disponíveis para você.
+            Um espaço pensado para acolher você. Conheça a clínica,
+            descubra os serviços disponíveis e converse com nossa equipe.
           </p>
-          <a href="#contato" class="button">Entre em contato</a>
+          <div class="hero-actions">
+            <a class="btn" href="#contato">Conheça a clínica ↗</a>
+            <a class="textlink" href="#servicos">Explorar serviços</a>
+          </div>
         </div>
 
-        <div class="hero-image">
-          <span>ESPAÇO RESERVADO PARA UMA FOTO AUTORIZADA DA CLÍNICA</span>
+        <div class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1000&q=85"
+            alt="Ambiente de cuidados com a pele"
+            fetchpriority="high">
+          <div class="image-note">
+            <strong>Seu momento de cuidado</strong>
+            <span>Conheça nossa proposta de atendimento.</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="sobre">
-      <div class="container about">
-        <span class="eyebrow">Sobre nós</span>
-        <h2>Um espaço dedicado ao seu cuidado</h2>
-        <p>
-          Insira aqui a história real da clínica, sua proposta de atendimento
-          e os diferenciais confirmados pela empresa.
-        </p>
+      <div class="container about-grid">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80"
+            alt="Atendimento de cuidados estéticos"
+            loading="lazy">
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">Sobre a clínica</span>
+          <h2 class="serif">Cuidado em cada detalhe.</h2>
+          <p>
+            Apresente aqui a história da clínica, sua equipe e a forma
+            como recebe cada cliente. Personalize este texto com
+            informações confirmadas pela empresa.
+          </p>
+          <a href="#contato" class="textlink">Conheça nosso espaço ↗</a>
+        </div>
       </div>
     </section>
 
     <section class="services" id="servicos">
       <div class="container">
-        <div class="section-heading">
+        <div class="sectionhead">
           <span class="eyebrow">Nossos serviços</span>
-          <h2>Conheça nossas opções de atendimento</h2>
+          <h2 class="serif">Conheça nossas opções.</h2>
           <p>
-            Os serviços abaixo são espaços reservados para preencher
-            com as informações confirmadas pela clínica.
+            Substitua os exemplos abaixo pelos serviços que a clínica
+            realmente oferece.
           </p>
         </div>
 
         <div class="cards">
           <article class="card">
-            <span class="number">01</span>
-            <h3>[SERVIÇO CONFIRMADO]</h3>
-            <p>Adicione uma descrição objetiva do serviço.</p>
+            <span class="card-number">01 — SERVIÇO</span>
+            <h3>[Nome do serviço]</h3>
+            <p>Inclua uma descrição clara e confirmada deste atendimento.</p>
           </article>
 
           <article class="card">
-            <span class="number">02</span>
-            <h3>[SERVIÇO CONFIRMADO]</h3>
-            <p>Explique o atendimento com informações verificadas.</p>
+            <span class="card-number">02 — SERVIÇO</span>
+            <h3>[Nome do serviço]</h3>
+            <p>Explique o serviço sem prometer resultados garantidos.</p>
           </article>
 
           <article class="card">
-            <span class="number">03</span>
-            <h3>[SERVIÇO CONFIRMADO]</h3>
-            <p>Inclua somente serviços realmente oferecidos.</p>
+            <span class="card-number">03 — SERVIÇO</span>
+            <h3>[Nome do serviço]</h3>
+            <p>Use este espaço para outra opção confirmada pela clínica.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contato">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Fale conosco</span>
-          <h2>Estamos à disposição para atender você</h2>
-        </div>
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Entre em contato</span>
+          <h2 class="serif">Vamos conversar?</h2>
+          <p>
+            Ficaremos felizes em esclarecer suas dúvidas e apresentar
+            as informações sobre os serviços disponíveis.
+          </p>
 
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Entre em contato</h3>
-            <p><strong>WhatsApp:</strong> [INSERIR CONTATO]</p>
-            <p><strong>Instagram:</strong> [INSERIR PERFIL]</p>
-            <p><strong>Endereço:</strong> [INSERIR ENDEREÇO]</p>
-            <p><strong>Localização:</strong> adicionar link confirmado do mapa.</p>
-            <a href="https://wa.me/" class="button" id="whatsapp">
-              Configurar WhatsApp
-            </a>
+          <div class="contact-detail">
+            <small>WhatsApp</small>
+            <a id="phoneText" href="#contato">[Configurar telefone]</a>
           </div>
 
-          <div class="hours">
-            <h3>Horários de atendimento</h3>
-            <p><span>Segunda a sexta</span><span>[CONFIRMAR]</span></p>
-            <p><span>Sábado</span><span>[CONFIRMAR]</span></p>
-            <p><span>Domingo</span><span>[CONFIRMAR]</span></p>
+          <div class="contact-detail">
+            <small>Instagram</small>
+            <a id="instagramLink" href="#contato">[Configurar Instagram]</a>
+          </div>
+
+          <div class="contact-detail">
+            <small>Endereço</small>
+            <span>[Inserir endereço confirmado]</span>
+          </div>
+
+          <p style="margin-top:24px">
+            <a id="whatsappBtn" class="btn btn-light" href="#contato">
+              Conversar pelo WhatsApp ↗
+            </a>
+          </p>
+        </div>
+
+        <div class="hours-box">
+          <h3>Horários de atendimento</h3>
+          <p style="color:var(--muted);font-size:.87rem;margin-bottom:12px">
+            Confirme os horários diretamente com a equipe.
+          </p>
+          <div class="hours-row"><span>Segunda a sexta</span><strong>[Confirmar]</strong></div>
+          <div class="hours-row"><span>Sábado</span><strong>[Confirmar]</strong></div>
+          <div class="hours-row"><span>Domingo</span><strong>[Confirmar]</strong></div>
+          <div style="margin-top:24px">
+            <span class="eyebrow">Localização</span>
+            <p style="margin-top:8px;font-size:.9rem;color:var(--muted)">
+              Adicione aqui o link do mapa com o endereço exato.
+            </p>
           </div>
         </div>
       </div>
@@ -378,48 +490,78 @@
 
     <section class="faq">
       <div class="container">
-        <div class="section-heading">
+        <div class="sectionhead">
           <span class="eyebrow">Dúvidas frequentes</span>
-          <h2>Como podemos ajudar?</h2>
+          <h2 class="serif">Informações para você.</h2>
         </div>
 
-        <details>
-          <summary>Como posso conhecer os serviços?</summary>
-          <p>Entre em contato com a clínica para consultar os serviços disponíveis.</p>
-        </details>
-
-        <details>
-          <summary>Como posso consultar os horários?</summary>
-          <p>Confirme os horários de atendimento diretamente com a equipe.</p>
-        </details>
-
-        <details>
-          <summary>Como posso entrar em contato?</summary>
-          <p>Utilize os canais oficiais informados nesta página.</p>
-        </details>
+        <div class="faq-list">
+          <details>
+            <summary>Quais serviços a clínica oferece?</summary>
+            <p>Consulte a lista de serviços confirmados nesta página ou entre em contato com a equipe.</p>
+          </details>
+          <details>
+            <summary>Como posso consultar os valores?</summary>
+            <p>Entre em contato diretamente com a clínica para obter informações atualizadas.</p>
+          </details>
+          <details>
+            <summary>Como posso saber os horários disponíveis?</summary>
+            <p>Fale com a equipe pelos canais oficiais para confirmar os horários.</p>
+          </details>
+        </div>
       </div>
     </section>
 
-    <section class="final-cta">
+    <section class="closing">
       <div class="container">
-        <h2>Vamos conversar?</h2>
-        <p>Entre em contato para saber mais sobre a clínica.</p>
-        <a href="#contato" class="button">Fale conosco</a>
+        <span class="eyebrow">Seu próximo passo</span>
+        <h2 class="serif">Estamos aqui para conversar.</h2>
+        <p>Entre em contato e conheça melhor a clínica.</p>
+        <a class="btn" href="#contato">Fale com nossa equipe ↗</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p><strong>NOME DA CLÍNICA</strong></p>
-      <p>[CIDADE/UF]</p>
+    <div class="container footer-inner">
+      <div>
+        <strong>NOME DA CLÍNICA</strong>
+        <p>Estética & cuidado</p>
+      </div>
       <p>© <span id="year"></span> — Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    // Personalize estes dados para cada cliente.
+    // Deixe o WhatsApp vazio até ter o número confirmado.
+    const CONFIG = {
+      nome: "NOME DA CLÍNICA",
+      whatsapp: "",
+      instagram: ""
+    };
+
+    document.title = CONFIG.nome + " | Estética & cuidado";
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    if (CONFIG.whatsapp) {
+      const numero = CONFIG.whatsapp.replace(/\D/g, "");
+      const link = "https://wa.me/" + numero;
+      const btn = document.getElementById("whatsappBtn");
+      btn.href = link;
+      btn.target = "_blank";
+      btn.rel = "noopener noreferrer";
+      document.getElementById("phoneText").href = link;
+      document.getElementById("phoneText").textContent = "Fale conosco";
+    }
+
+    if (CONFIG.instagram) {
+      const perfil = document.getElementById("instagramLink");
+      perfil.href = CONFIG.instagram;
+      perfil.target = "_blank";
+      perfil.rel = "noopener noreferrer";
+      perfil.textContent = "Acompanhe nosso Instagram ↗";
+    }
   </script>
 </body>
 </html>
