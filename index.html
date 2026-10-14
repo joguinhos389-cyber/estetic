@@ -44,17 +44,15 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body, button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     button {
       font: inherit;
+      -webkit-tap-highlight-color: transparent;
     }
 
     img {
@@ -73,7 +71,6 @@
       color: #e3c995;
       text-align: center;
       font-size: 12px;
-      letter-spacing: .2px;
     }
 
     .header {
@@ -159,7 +156,7 @@
       color: #17150f;
       font-size: 13px;
       font-weight: 700;
-      transition: background .2s, transform .2s, border-color .2s;
+      transition: background .2s, transform .2s;
       cursor: pointer;
     }
 
@@ -1142,10 +1139,11 @@
             <span>Cuidado em cada detalhe</span>
           </div>
 
+          <!-- Imagem corrigida: usa uma URL válida já utilizada no site. -->
           <div class="gallery-item">
             <img
-              src="https://images.unsplash.com/photo- barber"
-              alt="Imagem ilustrativa de barbearia"
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=85"
+              alt="Interior de uma barbearia moderna"
               loading="lazy"
             >
             <span>Seu próximo visual</span>
