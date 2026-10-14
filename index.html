@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça nossa clínica de estética e entre em contato para saber mais sobre nossos serviços.">
+  <title>Clínica de Estética | Seu cuidado</title>
+
+  <style>
+    :root {
+      --primary: #704b68;
+      --dark: #352a34;
+      --light: #fbf7f8;
+      --accent: #e9d9e3;
+      --text: #514650;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #eee7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: .9rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 30px;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      transition: opacity .2s;
+    }
+
+    .button:hover { opacity: .85; }
+
+    .hero {
+      background: var(--light);
+      padding: 90px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    h1, h2 {
+      color: var(--dark);
+      line-height: 1.2;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.3rem);
+      margin: 18px 0;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      margin: 12px 0 20px;
+    }
+
+    .hero p { max-width: 530px; margin-bottom: 28px; }
+
+    .hero-image {
+      min-height: 410px;
+      border-radius: 180px 180px 22px 22px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .hero-image span {
+      max-width: 230px;
+      font-size: 1rem;
+    }
+
+    section { padding: 82px 0; }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading p { margin-top: 12px; }
+
+    .about {
+      text-align: center;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .services { background: var(--light); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: 18px;
+      background: var(--white);
+      border: 1px solid #eee7eb;
+    }
+
+    .card .number {
+      color: var(--primary);
+      font-size: .85rem;
+      letter-spacing: 1px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin: 12px 0;
+      font-size: 1.15rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .contact-info p { margin: 12px 0; }
+
+    .hours {
+      background: var(--light);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .hours h3 { color: var(--dark); margin-bottom: 15px; }
+
+    .hours p {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      border-bottom: 1px solid #e8dfe5;
+      padding: 9px 0;
+    }
+
+    .faq { background: var(--light); }
+
+    details {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 19px 22px;
+      margin: 12px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    details p { padding-top: 12px; }
+
+    .final-cta {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .final-cta h2 { color: var(--white); }
+
+    .final-cta .button {
+      background: var(--white);
+      color: var(--primary);
+      margin-top: 20px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 32px 0;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    footer p { margin: 5px 0; }
+
+    @media (max-width: 760px) {
+      nav {
+        padding: 18px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .hero { padding: 60px 0; }
+
+      .hero-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero-image { min-height: 290px; }
+
+      section { padding: 60px 0; }
+
+      .cards { grid-template-columns: 1fr; }
+
+      .hours p { font-size: .9rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a href="#inicio" class="logo">NOME DA CLÍNICA</a>
+      <div class="nav-links">
+        <a href="#sobre">A clínica</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato" class="button">Fale conosco</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Cuidado pensado para você</span>
+          <h1>Sua rotina merece um momento de cuidado.</h1>
+          <p>
+            Conheça nossa clínica e descubra as opções de atendimento
+            disponíveis para você.
+          </p>
+          <a href="#contato" class="button">Entre em contato</a>
+        </div>
+
+        <div class="hero-image">
+          <span>ESPAÇO RESERVADO PARA UMA FOTO AUTORIZADA DA CLÍNICA</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container about">
+        <span class="eyebrow">Sobre nós</span>
+        <h2>Um espaço dedicado ao seu cuidado</h2>
+        <p>
+          Insira aqui a história real da clínica, sua proposta de atendimento
+          e os diferenciais confirmados pela empresa.
+        </p>
+      </div>
+    </section>
+
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Nossos serviços</span>
+          <h2>Conheça nossas opções de atendimento</h2>
+          <p>
+            Os serviços abaixo são espaços reservados para preencher
+            com as informações confirmadas pela clínica.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="number">01</span>
+            <h3>[SERVIÇO CONFIRMADO]</h3>
+            <p>Adicione uma descrição objetiva do serviço.</p>
+          </article>
+
+          <article class="card">
+            <span class="number">02</span>
+            <h3>[SERVIÇO CONFIRMADO]</h3>
+            <p>Explique o atendimento com informações verificadas.</p>
+          </article>
+
+          <article class="card">
+            <span class="number">03</span>
+            <h3>[SERVIÇO CONFIRMADO]</h3>
+            <p>Inclua somente serviços realmente oferecidos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Fale conosco</span>
+          <h2>Estamos à disposição para atender você</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Entre em contato</h3>
+            <p><strong>WhatsApp:</strong> [INSERIR CONTATO]</p>
+            <p><strong>Instagram:</strong> [INSERIR PERFIL]</p>
+            <p><strong>Endereço:</strong> [INSERIR ENDEREÇO]</p>
+            <p><strong>Localização:</strong> adicionar link confirmado do mapa.</p>
+            <a href="https://wa.me/" class="button" id="whatsapp">
+              Configurar WhatsApp
+            </a>
+          </div>
+
+          <div class="hours">
+            <h3>Horários de atendimento</h3>
+            <p><span>Segunda a sexta</span><span>[CONFIRMAR]</span></p>
+            <p><span>Sábado</span><span>[CONFIRMAR]</span></p>
+            <p><span>Domingo</span><span>[CONFIRMAR]</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Dúvidas frequentes</span>
+          <h2>Como podemos ajudar?</h2>
+        </div>
+
+        <details>
+          <summary>Como posso conhecer os serviços?</summary>
+          <p>Entre em contato com a clínica para consultar os serviços disponíveis.</p>
+        </details>
+
+        <details>
+          <summary>Como posso consultar os horários?</summary>
+          <p>Confirme os horários de atendimento diretamente com a equipe.</p>
+        </details>
+
+        <details>
+          <summary>Como posso entrar em contato?</summary>
+          <p>Utilize os canais oficiais informados nesta página.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2>Vamos conversar?</h2>
+        <p>Entre em contato para saber mais sobre a clínica.</p>
+        <a href="#contato" class="button">Fale conosco</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>NOME DA CLÍNICA</strong></p>
+      <p>[CIDADE/UF]</p>
+      <p>© <span id="year"></span> — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
