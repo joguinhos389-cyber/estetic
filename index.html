@@ -29,6 +29,7 @@ a{color:inherit}
 .nav{display:flex;gap:5px;align-items:center;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
 .nav a,.audio-toggle{white-space:nowrap;text-decoration:none;font-size:12px;font-weight:800;color:var(--muted);padding:9px 11px;border-radius:10px;border:1px solid transparent;background:transparent}
 .nav a:hover,.audio-toggle:hover{color:var(--ink);background:#ffffff0a;border-color:#ffffff16}
+.nav a.universe-nav{color:var(--acid);border-color:#d7ff3644;background:#d7ff3608;font-weight:1000}.nav a.universe-nav:hover{background:var(--acid);color:#111}
 .audio-toggle[aria-pressed="true"]{color:var(--acid);border-color:#d7ff3655}
 main{max-width:1180px;margin:auto;padding:0 clamp(14px,4vw,42px) 80px}
 .hero{position:relative;min-height:620px;padding:clamp(44px,8vw,100px) 0 50px;display:grid;grid-template-columns:1.08fr .92fr;gap:22px;align-items:center}
@@ -283,7 +284,7 @@ body.moon-mode::before{opacity:.05}
 <header class="topbar">
   <a class="brand" href="#inicio" aria-label="Brainrot Premium, início"><span class="brand-mark">B!</span><span>BRAINROT PREMIUM™</span></a>
   <nav class="nav" aria-label="Navegação principal">
-    <a href="#aura">Aura</a><a href="#universo67">67</a><a href="#radio">Radio</a><a href="#brainrots">Brainrots</a><a href="#arena">Arena</a><a href="#detector">Detector</a><a href="#suspeitos">Suspeitos</a>
+    <a href="#aura">Aura</a><a href="#universo67">67</a><a href="#radio">Radio</a><a href="#brainrots">Brainrots</a><a href="#arena">Arena</a><a href="universe.html" class="universe-nav">Universe ↗</a><a href="#detector">Detector</a><a href="#suspeitos">Suspeitos</a>
   </nav>
   <div style="display:flex;gap:4px;align-items:center">
     <button class="audio-toggle" id="musicToggle" aria-pressed="false" title="Ativar ou desativar a trilha ambiente original do site, separada da rádio">♫ Loop: off</button>
@@ -889,6 +890,29 @@ $$("[data-brainrot]").forEach(card=>card.addEventListener("click",()=>brainrotRe
 
 updateAura();
 })();
+
+/* EVENTOS ALEATÓRIOS — aparecem também no BRAINROT UNIVERSE. */
+(function brainrotRandomEvents(){
+ const events=[
+  ["INVASÃO DO TUNG TUNG","O departamento de madeira exige sua atenção por motivos que não serão explicados."],
+  ["COLAPSO DE AURA","O mercado de aura oscilou 67%. Ninguém sabe o que isso significa."],
+  ["EVENTO 67","Duas cifras surgiram no horizonte. A matemática pediu reforços."],
+  ["MODO NPC","Você recebeu uma promoção temporária para figurante premium."],
+  ["AUDITORIA DO CLÓVIS","O CEO analisou seu histórico e decidiu não fazer perguntas."],
+  ["FALHA NA SIMULAÇÃO","Uma entidade atravessou a parede e fingiu que era normal."]
+ ];
+ let last=0;
+ function fire(){
+  const now=Date.now(); if(now-last<45000)return; last=now;
+  const e=events[Math.floor(Math.random()*events.length)];
+  if(typeof toast==='function') toast(e[0],e[1],Math.random()<.25?'glitch':'');
+  document.body.classList.add('random-event-flash');
+  setTimeout(()=>document.body.classList.remove('random-event-flash'),850);
+ }
+ const css=document.createElement('style');css.textContent='.random-event-flash{animation:randomEventFlash .22s steps(2,end) 3}@keyframes randomEventFlash{50%{filter:hue-rotate(55deg) saturate(1.4)}}';document.head.appendChild(css);
+ setTimeout(()=>{fire();setInterval(()=>{if(Math.random()<.72)fire()},65000+Math.random()*25000)},45000+Math.random()*30000);
+})();
+
 </script>
 </body>
 </html>
