@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#101014">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="BRAINROT PREMIUM — um experimento social de péssima qualidade moral e excelente acabamento visual.">
 <title>BRAINROT PREMIUM™ — sua aura está em análise</title>
 <style>
@@ -177,6 +178,104 @@ body.moon-mode::before{opacity:.05}
 @media(max-width:760px){.brainrot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brainrot-card{min-height:225px;padding:13px}}
 @media(max-width:390px){.brainrot-grid{gap:8px}.brainrot-card{min-height:215px}}
 
+
+/* BRAINROT RADIO — extensão isolada, preservando os estilos existentes */
+.radio-shell{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr);gap:14px}
+.radio-main{background:linear-gradient(145deg,#251b2d,#19191f 65%);border:1px solid #ff4f9a55}
+.radio-brandline{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.radio-logo{display:flex;align-items:center;gap:10px;font-weight:1000;letter-spacing:-.06em;font-size:clamp(21px,3vw,32px)}
+.radio-logo-mark{display:grid;place-items:center;width:42px;height:42px;background:var(--pink);color:#160a10;border:2px solid #111;box-shadow:4px 4px 0 #111;transform:rotate(-7deg);font-size:19px}
+.radio-live{font-size:10px;font-weight:1000;letter-spacing:.1em;color:var(--acid);border:1px solid #d7ff3655;border-radius:999px;padding:7px 9px}
+.radio-live::before{content:"";display:inline-block;width:6px;height:6px;background:currentColor;border-radius:50%;margin-right:6px}
+.radio-track-title{font-size:clamp(20px,3vw,31px);line-height:1;letter-spacing:-.055em;font-weight:1000;margin:22px 0 5px}
+.radio-track-artist{color:var(--muted);font-size:12px}
+.radio-player{margin-top:18px;border:1px solid #ffffff22;background:#08080b;border-radius:14px;overflow:hidden}
+.radio-player iframe{display:block;width:100%;aspect-ratio:16/9;border:0}#radioYoutubePlayer{aspect-ratio:16/9;width:100%}#radioYoutubePlayer iframe{width:100%;height:100%}
+.radio-placeholder{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;padding:22px;background:repeating-linear-gradient(135deg,#19191f,#19191f 12px,#202027 12px,#202027 24px)}
+.radio-placeholder strong{display:block;font-size:18px;letter-spacing:-.04em}
+.radio-placeholder p{max-width:360px;font-size:11px;color:var(--muted)}
+.radio-placeholder .radio-glyph{font-size:36px;color:var(--pink);font-weight:1000}
+.radio-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.radio-controls .btn{min-height:42px;padding:10px 12px}
+.radio-volume{display:flex;align-items:center;gap:8px;flex:1;min-width:145px;font-size:11px;color:var(--muted)}
+.radio-volume input{width:100%;accent-color:var(--acid)}
+.radio-progress{height:5px;background:#ffffff17;border-radius:99px;overflow:hidden;margin-top:13px}
+.radio-progress-fill{height:100%;width:0;background:var(--pink);transition:width .3s linear}
+.radio-time{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:5px}
+.radio-side{display:flex;flex-direction:column;gap:12px}
+.radio-cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.radio-cat{border:1px solid var(--line);border-radius:11px;padding:11px 7px;background:#ffffff05;font-size:11px;font-weight:1000;line-height:1.15}
+.radio-cat[aria-pressed="true"]{background:var(--acid);color:#111;border-color:var(--acid)}
+.radio-playlist{display:grid;gap:7px}
+.radio-track{display:grid;grid-template-columns:31px minmax(0,1fr) auto;align-items:center;gap:9px;text-align:left;width:100%;padding:10px;border:1px solid #ffffff18;background:#ffffff04;border-radius:12px}
+.radio-track:hover,.radio-track[aria-current="true"]{border-color:var(--pink);background:#ff4f9a0d}
+.radio-track-num{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#ffffff0b;color:var(--acid);font-size:11px;font-weight:1000}
+.radio-track strong{display:block;font-size:12px;line-height:1.2}.radio-track small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.radio-track-status{font-size:9px;color:var(--muted);font-weight:900}
+.radio-visualizer{height:55px;display:flex;align-items:center;justify-content:center;gap:4px;margin-top:14px;padding:5px;border-radius:10px;background:#0d0d11;border:1px solid #ffffff12}
+.radio-visualizer span{display:block;width:5px;height:8px;border-radius:3px;background:var(--acid);opacity:.7;transform-origin:center}
+.radio-visualizer.is-playing span{animation:radioBars .65s ease-in-out infinite alternate}
+.radio-visualizer.is-playing span:nth-child(3n){animation-delay:-.3s;background:var(--pink)}
+.radio-visualizer.is-playing span:nth-child(2n){animation-delay:-.5s;background:var(--blue)}
+.radio-message{font-size:11px;line-height:1.4;color:var(--muted);min-height:32px;margin:10px 0 0}
+.radio-open{display:inline-block;font-size:11px;font-weight:900;color:var(--acid);margin-top:8px}
+.radio-shuffle[aria-pressed="true"]{border-color:var(--acid);color:var(--acid);background:#d7ff360d}
+.brainrot-visual{min-height:145px}
+.brainrot-svg{width:min(100%,190px);height:140px;overflow:visible;filter:drop-shadow(3px 7px 0 #0007);transition:transform .2s}
+.brainrot-card:hover .brainrot-svg{transform:translateY(-4px) scale(1.03)}
+.brainrot-card.is-reacting .brainrot-svg{animation:brBounce .48s cubic-bezier(.2,.8,.2,1)}
+.brainrot-card.is-special{border-color:var(--acid);box-shadow:0 0 0 2px #d7ff3620,0 0 28px #d7ff3620}
+.brainrot-card .br-combo{position:absolute;top:12px;left:12px;font-size:10px;font-weight:1000;color:var(--acid);opacity:0;transition:opacity .2s}
+.brainrot-card.is-special .br-combo{opacity:1}
+.brainrot-card[data-brainrot="tung"] .brainrot-svg{--char:#b78350}
+.brainrot-card[data-brainrot="tralalero"] .brainrot-svg{--char:#428bdb}
+.brainrot-card[data-brainrot="bombardiro"] .brainrot-svg{--char:#77a9a0}
+.brainrot-card[data-brainrot="ballerina"] .brainrot-svg{--char:#ffb7d4}
+@keyframes radioBars{from{height:5px;opacity:.5}to{height:42px;opacity:1}}
+@keyframes brBounce{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-13px) rotate(-4deg)}70%{transform:translateY(2px) rotate(3deg)}}
+@media(max-width:760px){.radio-shell{grid-template-columns:1fr}.radio-side{min-width:0}.radio-main{padding:16px}.radio-track{padding:9px}.radio-track-status{font-size:8px}.brainrot-visual{min-height:130px}.brainrot-svg{height:125px}}
+@media(prefers-reduced-motion:reduce){.radio-visualizer.is-playing span{animation:none;height:10px!important}.brainrot-card.is-reacting .brainrot-svg{animation:none}}
+
+
+/* BRAINROT ARENA — minigame integrado */
+.arena-shell{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:14px}
+.arena-main{background:linear-gradient(145deg,#20251a,#19191f 62%);border-color:#d7ff3655}
+.arena-hud{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.arena-stat{background:#08080b;border:1px solid #ffffff1a;border-radius:10px;padding:8px 11px;font-size:11px;color:var(--muted)}
+.arena-stat strong{display:block;color:var(--acid);font-size:20px;line-height:1.1}
+.arena-world{position:relative;overflow:hidden;min-height:330px;aspect-ratio:16/9;border:2px solid #383842;border-radius:15px;background:radial-gradient(circle at 50% 50%,#252b1c 0,#15151a 60%,#0b0b0e 100%);isolation:isolate;touch-action:none}
+.arena-world::before{content:"";position:absolute;inset:0;opacity:.22;background-image:linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.arena-world::after{content:"";position:absolute;inset:0;border:1px dashed #d7ff3633;border-radius:13px;pointer-events:none}
+.arena-entity{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%);z-index:2;user-select:none}
+.arena-player{width:64px;height:64px;filter:drop-shadow(0 0 13px #d7ff3666);transition:filter .12s;pointer-events:none}
+.arena-player svg{width:100%;height:100%;overflow:visible}
+.arena-player.shielded{filter:drop-shadow(0 0 15px #7c7bff) drop-shadow(0 0 5px #fff)}
+.arena-token{width:31px;height:31px;border-radius:50%;background:var(--acid);border:2px solid #111;color:#111;font-weight:1000;font-size:12px;box-shadow:0 0 18px #d7ff3688;animation:arenaPulse .7s ease-in-out infinite alternate}
+.arena-hazard{width:34px;height:34px;border-radius:10px;background:var(--pink);border:2px solid #111;color:#111;font-size:12px;font-weight:1000;box-shadow:0 0 15px #ff4f9a66;transform:translate(-50%,-50%) rotate(12deg)}
+.arena-overlay{position:absolute;inset:0;z-index:5;display:grid;place-items:center;text-align:center;padding:22px;background:#101014c9;backdrop-filter:blur(4px)}
+.arena-overlay.hidden{display:none!important}
+.arena-overlay-card{max-width:360px}
+.arena-overlay-card strong{display:block;font-size:clamp(22px,4vw,36px);line-height:.98;letter-spacing:-.06em}
+.arena-overlay-card p{color:#c7c4cf;font-size:12px}
+.arena-controls{display:grid;grid-template-columns:repeat(3,48px);gap:6px;justify-content:center;align-items:center;margin-top:12px}
+.arena-controls button{height:44px;border:1px solid #ffffff2a;border-radius:11px;background:#ffffff0a;font-weight:1000;touch-action:manipulation}
+.arena-controls button:active,.arena-ability:active{background:var(--acid);color:#111}
+.arena-control-empty{visibility:hidden}
+.arena-side{display:flex;flex-direction:column;gap:14px}
+.arena-character-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.arena-character{border:1px solid #ffffff1c;border-radius:12px;background:#ffffff05;padding:10px;text-align:left;min-width:0}
+.arena-character[aria-pressed="true"]{border-color:var(--acid);background:#d7ff3610;box-shadow:inset 0 0 0 1px #d7ff3622}
+.arena-character strong{display:block;font-size:11px;line-height:1.15}
+.arena-character small{display:block;color:var(--muted);font-size:9px;margin-top:4px}
+.arena-ability{width:100%;border:1px solid var(--pink);border-radius:12px;background:#ff4f9a14;padding:12px;font-size:12px;font-weight:1000}
+.arena-help{font-size:11px;line-height:1.5;color:var(--muted)}
+.arena-message{min-height:34px;font-size:12px;color:var(--acid);margin:10px 0 0}
+.arena-world.is-hit{animation:arenaHit .2s linear}
+@keyframes arenaPulse{to{transform:translate(-50%,-50%) scale(1.14);box-shadow:0 0 25px #d7ff36}}
+@keyframes arenaHit{25%{transform:translateX(4px)}50%{transform:translateX(-4px)}75%{transform:translateX(2px)}}
+@media(max-width:760px){.arena-shell{grid-template-columns:1fr}.arena-world{min-height:280px;aspect-ratio:4/3}.arena-player{width:56px;height:56px}.arena-side{display:grid;grid-template-columns:1fr}.arena-character-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.arena-token{animation:none}}
+
 </style>
 </head>
 <body>
@@ -184,10 +283,10 @@ body.moon-mode::before{opacity:.05}
 <header class="topbar">
   <a class="brand" href="#inicio" aria-label="Brainrot Premium, início"><span class="brand-mark">B!</span><span>BRAINROT PREMIUM™</span></a>
   <nav class="nav" aria-label="Navegação principal">
-    <a href="#aura">Aura</a><a href="#universo67">67</a><a href="#brainrots">Brainrots</a><a href="#detector">Detector</a><a href="#suspeitos">Suspeitos</a>
+    <a href="#aura">Aura</a><a href="#universo67">67</a><a href="#radio">Radio</a><a href="#brainrots">Brainrots</a><a href="#arena">Arena</a><a href="#detector">Detector</a><a href="#suspeitos">Suspeitos</a>
   </nav>
   <div style="display:flex;gap:4px;align-items:center">
-    <button class="audio-toggle" id="musicToggle" aria-pressed="false" title="Ativar ou desativar a trilha musical">♫ Música: off</button>
+    <button class="audio-toggle" id="musicToggle" aria-pressed="false" title="Ativar ou desativar a trilha ambiente original do site, separada da rádio">♫ Loop: off</button>
     <button class="audio-toggle" id="audioToggle" aria-pressed="false" title="Ativar ou desativar efeitos sonoros">✳ Efeitos: off</button>
   </div>
 </header>
@@ -245,15 +344,118 @@ body.moon-mode::before{opacity:.05}
  </div>
 </section>
 
+
+<section class="section" id="radio">
+ <div class="section-head"><div><div class="kicker">03 / transmissão não autorizada pelo bom senso</div><h2>BRAINROT RADIO™</h2></div><p>Nove faixas cadastradas. Três departamentos. Músicas reais via player oficial incorporado quando há um vídeo confirmado.</p></div>
+ <div class="radio-shell">
+  <article class="panel radio-main">
+   <div class="radio-brandline"><div class="radio-logo"><span class="radio-logo-mark">BR!</span><span>BRAINROT<br>RADIO™</span></div><span class="radio-live" id="radioState">NO AR? A CONFIRMAR</span></div>
+   <div class="radio-track-title" id="radioTitle">Selecione seu primeiro incidente sonoro</div>
+   <div class="radio-track-artist" id="radioArtist">O silêncio é a única faixa 100% garantida.</div>
+   <div class="radio-visualizer" id="radioVisualizer" aria-label="Visualizador decorativo do estado do player"></div>
+   <div class="radio-player" id="radioPlayer"><div class="radio-placeholder" id="radioPlaceholder"><div><div class="radio-glyph">♫ BR! ♫</div><strong>PLAYER OFICIAL PRONTO</strong><p>Escolha uma faixa para carregar a gravação real no player incorporado.</p></div></div></div>
+   <div class="radio-controls"><button class="btn btn-primary" id="radioPlay" disabled>▶ REPRODUZIR</button><button class="btn" id="radioNext" disabled>PRÓXIMA ↗</button><button class="btn radio-shuffle" id="radioShuffle" aria-pressed="false">⤨ ALEATÓRIO: OFF</button></div><a class="radio-open" id="radioOpen" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" hidden>BUSCAR FAIXA ↗</a>
+   <label class="radio-volume">VOLUME DA RÁDIO <input id="radioVolume" type="range" min="0" max="100" value="65" aria-label="Volume do player do YouTube"><span id="radioVolumeValue">65%</span></label>
+   <div class="radio-progress" aria-label="Progresso da faixa"><div class="radio-progress-fill" id="radioProgress"></div></div><div class="radio-time"><span id="radioCurrentTime">--:--</span><span id="radioDuration">--:--</span></div>
+   <p class="radio-message" id="radioMessage" aria-live="polite">O estúdio está em silêncio. Escolha um preset e aperte reproduzir.</p>
+  </article>
+  <aside class="panel radio-side">
+   <div><div class="kicker">escolha seu departamento</div><div class="radio-cats" role="group" aria-label="Categorias musicais"><button class="radio-cat" data-radio-cat="sixseven" aria-pressed="true">SIX<br>SEVEN</button><button class="radio-cat" data-radio-cat="aura" aria-pressed="false">AURA<br>MODE</button><button class="radio-cat" data-radio-cat="phonk" aria-pressed="false">PHONK<br>SUBSOLO</button></div></div>
+   <div><div class="log-head"><strong id="radioCategoryTitle">SIX SEVEN DEPARTMENT</strong><span class="pill" id="radioTrackCount">03 FAIXAS</span></div><div class="radio-playlist" id="radioPlaylist"></div></div>
+   <p class="radio-message">Aviso honesto: a rádio não gera beats falsos. Se uma faixa ainda não tiver um vídeo oficial confirmado para incorporação, ela permanece identificada como pendente até a fonte ser verificada.</p>
+  </aside>
+ </div>
+</section>
+
 <section class="section brainrot-section" id="brainrots">
-  <div class="section-head"><div><div class="kicker">03 / fauna da internet</div><h2>O zoológico do brainrot.</h2></div><p>Não são mascotes. São incidentes culturais com pernas. Toque em cada entidade para descobrir seu nível de ameaça à sua aura.</p></div>
+  <div class="section-head"><div><div class="kicker">03 / fauna da internet</div><h2>O zoológico do brainrot.</h2></div><p>Não são mascotes. São incidentes culturais com pernas. Interaja com as entidades e depois leve sua favorita para a Brainrot Arena.</p></div>
   <div class="brainrot-grid">
-    <button class="brainrot-card" style="--br:#ff9a42" data-brainrot="tung"><div class="brainrot-visual"><span class="brainrot-emoji">🪵</span><span class="brainrot-stamp">PERIGO: MANHÃ</span></div><div><strong>Tung Tung Tung Sahur</strong><small>Chegou às 4h da manhã e quer conversar sobre produtividade.</small><span class="br-action">INVESTIGAR ENTIDADE ↗</span></div></button>
-    <button class="brainrot-card" style="--br:#7c7bff" data-brainrot="tralalero"><div class="brainrot-visual"><span class="brainrot-emoji">🦈</span><span class="brainrot-stamp">3 PÉS? TALVEZ.</span></div><div><strong>Tralalero Tralala</strong><small>O tubarão que transformou o oceano em uma reunião de condomínio.</small><span class="br-action">TESTAR A SANIDADE ↗</span></div></button>
-    <button class="brainrot-card" style="--br:#ff4f9a" data-brainrot="bombardiro"><div class="brainrot-visual"><span class="brainrot-emoji">🐊</span><span class="brainrot-stamp">VOO NÃO AUTORIZADO</span></div><div><strong>Bombardiro Crocodilo</strong><small>Plano de voo: nenhum. Confiança: inexplicavelmente alta.</small><span class="br-action">SOLICITAR POUSO ↗</span></div></button>
-    <button class="brainrot-card" style="--br:#d7ff36" data-brainrot="ballerina"><div class="brainrot-visual"><span class="brainrot-emoji">☕</span><span class="brainrot-stamp">BALLET DUVIDOSO</span></div><div><strong>Ballerina Cappuccina</strong><small>Seu café tem mais lore do que a temporada inteira da sua série.</small><span class="br-action">PEDIR UM LAUDO ↗</span></div></button>
+    <button class="brainrot-card" style="--br:#ff9a42" data-brainrot="tung"><div class="brainrot-visual"><svg class="brainrot-svg" viewBox="0 0 180 145" role="img" aria-label="Tung Tung Tung Sahur, figura de madeira com olhos grandes e taco">
+ <ellipse cx="88" cy="131" rx="48" ry="7" fill="#000" opacity=".28"/>
+ <path d="M64 42 Q62 24 82 17 Q102 11 116 29 L120 99 Q117 119 97 121 L69 114 Q58 104 62 87Z" fill="#b78350" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+ <path d="M69 43 Q86 33 111 42 M67 56 Q91 48 116 57 M66 72 Q91 65 117 74 M68 89 Q91 84 117 91 M76 105 Q94 99 111 105" fill="none" stroke="#704425" stroke-width="4" stroke-linecap="round"/>
+ <ellipse cx="80" cy="57" rx="13" ry="17" fill="#fff4d8" stroke="#111" stroke-width="4"/><ellipse cx="105" cy="57" rx="13" ry="17" fill="#fff4d8" stroke="#111" stroke-width="4"/>
+ <ellipse cx="83" cy="61" rx="5" ry="8" fill="#111"/><ellipse cx="102" cy="61" rx="5" ry="8" fill="#111"/>
+ <path d="M82 83 Q94 95 108 81" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+ <path d="M132 28 L150 15 Q155 13 159 19 L166 27 Q168 31 162 35 L145 47Z" fill="#d6a66d" stroke="#111" stroke-width="4"/>
+ <path d="M138 43 L118 90" stroke="#111" stroke-width="13" stroke-linecap="round"/><path d="M138 43 L118 90" stroke="#c58d54" stroke-width="7" stroke-linecap="round"/>
+ <path d="M74 116 L69 132 M103 119 L110 132" stroke="#704425" stroke-width="10" stroke-linecap="round"/>
+</svg><span class="br-combo">COMBO ATIVO</span><span class="brainrot-stamp">PERIGO: MANHÃ</span></div><div><strong>Tung Tung Tung Sahur</strong><small>Chegou às 4h da manhã e quer conversar sobre produtividade.</small><span class="br-action">INVESTIGAR ENTIDADE ↗</span></div></button>
+    <button class="brainrot-card" style="--br:#7c7bff" data-brainrot="tralalero"><div class="brainrot-visual"><svg class="brainrot-svg" viewBox="0 0 190 145" role="img" aria-label="Tralalero Tralala, tubarão azul com três pernas e tênis">
+ <ellipse cx="94" cy="132" rx="70" ry="7" fill="#000" opacity=".25"/>
+ <path d="M24 66 Q35 35 77 37 L112 45 L139 27 L136 54 Q165 60 175 80 L147 88 L120 100 L64 99 Q31 94 24 66Z" fill="#428bdb" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M40 78 Q74 88 111 78 L146 82 L123 101 L63 103 Q47 97 40 78Z" fill="#f3e9db" stroke="#111" stroke-width="3"/>
+ <path d="M56 48 Q74 42 91 48" fill="none" stroke="#a9d9ff" stroke-width="5" stroke-linecap="round"/>
+ <circle cx="57" cy="58" r="10" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="59" cy="59" r="4" fill="#111"/>
+ <path d="M27 68 L12 60 L18 77 L9 85 L31 85" fill="#428bdb" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M69 99 L63 119 L54 123 M92 100 L95 119 L87 124 M116 98 L128 116 L121 122" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+ <path d="M45 123 Q56 115 69 123 L72 132 L43 132Z M78 124 Q90 116 102 125 L104 133 L77 133Z M112 122 Q127 115 139 125 L142 133 L112 133Z" fill="#ff4f9a" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+ <path d="M47 126 L65 126 M81 127 L98 127 M116 126 L135 126" stroke="#fff" stroke-width="3"/>
+</svg><span class="br-combo">COMBO ATIVO</span><span class="brainrot-stamp">TRÊS PERNAS</span></div><div><strong>Tralalero Tralala</strong><small>O tubarão que transformou o oceano em uma reunião de condomínio.</small><span class="br-action">TESTAR A SANIDADE ↗</span></div></button>
+    <button class="brainrot-card" style="--br:#ff4f9a" data-brainrot="bombardiro"><div class="brainrot-visual"><svg class="brainrot-svg" viewBox="0 0 190 145" role="img" aria-label="Bombardiro Crocodilo, cabeça de crocodilo integrada a um avião">
+ <ellipse cx="95" cy="130" rx="74" ry="7" fill="#000" opacity=".25"/>
+ <path d="M18 78 L66 65 L106 66 L151 79 L171 88 L150 97 L102 100 L56 94Z" fill="#9aa9a2" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M67 68 L86 24 L105 68 L124 95 L92 91Z" fill="#c4d0c8" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M70 80 L35 62 L43 88 L63 97 M121 80 L151 61 L145 90 L126 99" fill="#7a938b" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M20 76 Q30 49 57 53 L79 63 L73 82 L48 93 L22 88Z" fill="#77a9a0" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M24 80 L58 74 L73 82 L49 91 L23 88Z" fill="#d9e2d5" stroke="#111" stroke-width="3"/>
+ <circle cx="43" cy="64" r="8" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="45" cy="64" r="3" fill="#111"/>
+ <path d="M31 88 L36 94 M42 86 L47 92 M53 82 L58 88" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+ <path d="M98 100 L98 116 M121 98 L127 115" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+ <path d="M89 116 L107 116 M118 115 L136 115" stroke="#ff9a42" stroke-width="6" stroke-linecap="round"/>
+ <path d="M88 48 L97 41 L104 48" fill="none" stroke="#111" stroke-width="3"/>
+</svg><span class="br-combo">COMBO ATIVO</span><span class="brainrot-stamp">VOO NÃO AUTORIZADO</span></div><div><strong>Bombardiro Crocodilo</strong><small>Plano de voo: nenhum. Confiança: inexplicavelmente alta.</small><span class="br-action">SOLICITAR POUSO ↗</span></div></button>
+    <button class="brainrot-card" style="--br:#d7ff36" data-brainrot="ballerina"><div class="brainrot-visual"><svg class="brainrot-svg" viewBox="0 0 180 145" role="img" aria-label="Ballerina Cappuccina, xícara de cappuccino com tutu e sapatilhas de bailarina">
+ <ellipse cx="90" cy="132" rx="52" ry="7" fill="#000" opacity=".25"/>
+ <path d="M49 30 Q47 20 59 18 L115 18 Q128 20 126 31 L119 68 Q114 82 88 83 Q62 81 56 68Z" fill="#f4e5d3" stroke="#111" stroke-width="4"/>
+ <ellipse cx="87" cy="30" rx="38" ry="13" fill="#fff0dc" stroke="#111" stroke-width="4"/>
+ <ellipse cx="88" cy="29" rx="29" ry="8" fill="#9a5b35"/>
+ <path d="M74 29 Q83 19 93 28 Q102 36 111 25" fill="none" stroke="#f8d9a6" stroke-width="4" stroke-linecap="round"/>
+ <path d="M124 38 Q146 34 145 51 Q143 65 120 59" fill="none" stroke="#111" stroke-width="7"/>
+ <path d="M124 38 Q146 34 145 51 Q143 65 120 59" fill="none" stroke="#e6d3bd" stroke-width="4"/>
+ <ellipse cx="75" cy="47" rx="5" ry="7" fill="#111"/><ellipse cx="101" cy="47" rx="5" ry="7" fill="#111"/>
+ <path d="M77 60 Q88 68 100 59" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+ <path d="M50 77 Q87 65 126 77 L111 96 L64 96Z" fill="#ffb7d4" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+ <path d="M63 94 L72 115 L65 122 M111 94 L103 115 L112 122" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+ <path d="M53 122 Q64 116 72 122 L75 130 L51 130Z M104 122 Q115 116 124 122 L127 130 L103 130Z" fill="#d7ff36" stroke="#111" stroke-width="3"/>
+ <path d="M67 82 L74 90 M81 79 L88 89 M98 80 L105 90 M112 82 L118 89" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+ <path d="M72 12 Q88 1 104 12" fill="none" stroke="#ff4f9a" stroke-width="4" stroke-linecap="round"/>
+</svg><span class="br-combo">COMBO ATIVO</span><span class="brainrot-stamp">BALLET DUVIDOSO</span></div><div><strong>Ballerina Cappuccina</strong><small>Seu café tem mais lore do que a temporada inteira da sua série.</small><span class="br-action">PEDIR UM LAUDO ↗</span></div></button>
   </div>
   <p class="music-status" id="musicStatus" aria-live="polite">Trilha desativada. O silêncio também tem aura.</p>
+</section>
+
+<section class="section" id="arena">
+ <div class="section-head"><div><div class="kicker">04 / simulação de caos</div><h2>BRAINROT ARENA.</h2></div><p>Escolha sua entidade, colete aura e desvie dos NPCs. Finalmente, um uso questionável para seus reflexos.</p></div>
+ <div class="arena-shell">
+  <article class="panel arena-main">
+   <div class="arena-hud">
+    <div class="arena-stat">AURA COLETADA<strong id="arenaScore">0</strong></div>
+    <div class="arena-stat">TEMPO RESTANTE<strong id="arenaTime">30s</strong></div>
+    <div class="arena-stat">RECORDE<strong id="arenaBest">0</strong></div>
+   </div>
+   <div class="arena-world" id="arenaWorld" aria-label="Área do minigame Brainrot Arena">
+    <div class="arena-entity arena-player" id="arenaPlayer" style="left:50%;top:55%"></div>
+    <div class="arena-overlay" id="arenaOverlay"><div class="arena-overlay-card"><strong id="arenaOverlayTitle">SUA AURA ESTÁ EM PERIGO.</strong><p id="arenaOverlayText">Colete os tokens ✳, fuja dos NPCs cor-de-rosa e tente não virar figurante.</p><button class="btn btn-primary" id="arenaStart">INICIAR O CAOS ↗</button></div></div>
+   </div>
+   <p class="arena-message" id="arenaMessage" aria-live="polite">Escolha um brainrot e aperte iniciar. Computadores: WASD ou setas. Celular: controles direcionais.</p>
+   <div class="arena-controls" aria-label="Controles direcionais do minigame">
+    <button class="arena-control-empty" tabindex="-1" aria-hidden="true">·</button><button data-arena-dir="up" aria-label="Mover para cima">▲</button><button class="arena-control-empty" tabindex="-1" aria-hidden="true">·</button>
+    <button data-arena-dir="left" aria-label="Mover para esquerda">◀</button><button data-arena-dir="down" aria-label="Mover para baixo">▼</button><button data-arena-dir="right" aria-label="Mover para direita">▶</button>
+   </div>
+  </article>
+  <aside class="panel arena-side">
+   <div><div class="kicker">escolha sua entidade</div><div class="arena-character-list" id="arenaCharacters">
+    <button class="arena-character" data-arena-character="tung" aria-pressed="true"><strong>🪵 TUNG TUNG</strong><small>Escudo: bloqueia um erro.</small></button>
+    <button class="arena-character" data-arena-character="tralalero" aria-pressed="false"><strong>🦈 TRALALERO</strong><small>Dash: aceleração curta.</small></button>
+    <button class="arena-character" data-arena-character="bombardiro" aria-pressed="false"><strong>✈️ BOMBARDIRO</strong><small>Limpa os NPCs próximos.</small></button>
+    <button class="arena-character" data-arena-character="ballerina" aria-pressed="false"><strong>☕ BALLERINA</strong><small>Ímã: atrai aura por instantes.</small></button>
+   </div></div>
+   <button class="arena-ability" id="arenaAbility" disabled>HABILIDADE ESPECIAL — COMEÇAR PARTIDA</button>
+   <p class="arena-help"><strong>Objetivo:</strong> colete o máximo de aura em 30 segundos. Tokens verdes valem pontos. Encostar em NPCs rosa tira pontos e tempo. Cada personagem tem uma habilidade especial, ativada pelo botão ou pela barra de espaço.</p>
+   <button class="btn" id="arenaRestart" type="button">REINICIAR PARTIDA</button>
+  </aside>
+ </div>
 </section>
 
 <section class="section" id="suspeitos">
@@ -372,11 +574,11 @@ function sound(kind="tap"){
  $("#musicToggle").addEventListener("click",()=>{
   state.music=!state.music;$("#musicToggle").setAttribute("aria-pressed",String(state.music));
   $("#musicToggle").classList.toggle("music-on",state.music);
-  $("#musicToggle").textContent=state.music?"♫ Música: on":"♫ Música: off";
+  $("#musicToggle").textContent=state.music?"♫ Loop: on":"♫ Loop: off";
   $("#musicStatus").textContent=state.music?"TRILHA DO CAOS ATIVA — batida original gerada no navegador.":"Trilha desativada. O silêncio também tem aura.";
   if(state.music){
    try{const C=window.AudioContext||window.webkitAudioContext;if(C){audioCtx ||= new C();audioCtx.resume().then(()=>{if(state.music&&!musicTimer)playMusicBar();});}}
-   catch(e){state.music=false;$("#musicToggle").textContent="♫ Música: off";$("#musicStatus").textContent="Seu navegador não liberou o áudio.";}
+   catch(e){state.music=false;$("#musicToggle").textContent="♫ Loop: off";$("#musicStatus").textContent="Seu navegador não liberou o áudio.";}
    toast("TRILHA DO CAOS","Uma batida original começou. O departamento musical não tem orçamento.");
   }else{stopMusic();toast("TRILHA DESLIGADA","A aura agora toca em modo acústico imaginário.");}
  });
@@ -490,8 +692,203 @@ document.addEventListener("keydown",e=>{
  if(e.key==="Escape"&&state.mode67){document.body.classList.remove("mode67");state.mode67=false;toast("PROTOCOLO CANCELADO","Você escapou. Literalmente.");}
  if(e.key==="6"||e.key==="7"){state.keySeq=(state.keySeq||"")+e.key;state.keySeq=state.keySeq.slice(-4);if(state.keySeq==="6767"){state.keySeq="";revealSecret();toast("COMBO SECRETO 6767","Você encontrou o atalho numérico. O teclado está orgulhoso.");}}
 });
+
+/* BRAINROT RADIO™: gravações reais através do player oficial incorporado. Sem áudio sintetizado como substituto. */
+const RADIO_TRACKS = [
+ {id:"doot-doot-67",title:"Doot Doot (6 7)",artist:"Skrilla",category:"sixseven",videoId:"07xpV4ix2K8",search:"Skrilla Doot Doot 6 7 official"},
+ {id:"ratatung",title:"Ratatung",artist:"Horror Skunx",category:"sixseven",videoId:"TZAdoZy6y34",search:"Horror Skunx Ratatung official song"},
+ {id:"gigachads-brainrot-rap",title:"GigaChads Brainrot Rap",artist:"Devvey",category:"sixseven",videoId:"O4y_P0YUwPY",search:"Devvey GigaChads Brainrot Rap official"},
+ {id:"memory-reboot",title:"Memory Reboot",artist:"VØJ, Narvent",category:"aura",videoId:"wL8DVHuWI7Y",search:"VOJ Narvent Memory Reboot official"},
+ {id:"metamorphosis",title:"METAMORPHOSIS",artist:"INTERWORLD",category:"aura",videoId:"lJvRohYSrZM",search:"INTERWORLD METAMORPHOSIS official"},
+ {id:"murder-in-my-mind",title:"Murder In My Mind",artist:"Kordhell",category:"aura",videoId:null,search:"Kordhell Murder In My Mind official"},
+ {id:"montagem-xonada",title:"MONTAGEM XONADA (Slowed)",artist:"MXZI · Official Artist Channel",category:"phonk",videoId:"p5J7afpqcPY",search:"MXZI MONTAGEM XONADA official visualizer"},
+ {id:"montagem-tomada",title:"MONTAGEM TOMADA",artist:"MXZI",category:"phonk",videoId:"EYaP4h6njtI",search:"MXZI MONTAGEM TOMADA official visualiser"},
+ {id:"no-batidao",title:"NO BATIDÃO",artist:"ZXKAI, slxughter",category:"phonk",videoId:"ZB0amc1TZ3Y",search:"ZXKAI slxughter NO BATIDÃO official"}
+];
+const RADIO_CATEGORIES = {
+ sixseven:{title:"SIX SEVEN DEPARTMENT",label:"SIX SEVEN"},
+ aura:{title:"AURA RESEARCH DIVISION",label:"AURA MODE"},
+ phonk:{title:"PHONK SUBSOLO",label:"PHONK SUBSOLO"}
+};
+const radioState={category:"sixseven",trackId:"doot-doot-67",player:null,apiLoading:false,apiReady:false,playing:false,shuffle:false,volume:65,progressTimer:null,playRequested:false};
+const radioReducedMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const radioVisual=$("#radioVisualizer");
+for(let i=0;i<25;i++){const bar=document.createElement("span");bar.style.animationDelay=`-${(i%7)*.09}s`;radioVisual.appendChild(bar);}
+function radioTracks(){return RADIO_TRACKS.filter(t=>t.category===radioState.category);}
+function radioCurrent(){return RADIO_TRACKS.find(t=>t.id===radioState.trackId)||null;}
+function radioSearchUrl(track){return "https://www.youtube.com/results?search_query="+encodeURIComponent(track.search);}
+function radioFormatTime(value){if(!Number.isFinite(value)||value<0)return "--:--";const s=Math.floor(value);return `${Math.floor(s/60).toString().padStart(2,"0")}:${(s%60).toString().padStart(2,"0")}`;}
+function radioMessage(text){$("#radioMessage").textContent=text;}
+function radioStopProgress(){if(radioState.progressTimer!==null){clearInterval(radioState.progressTimer);radioState.progressTimer=null;}}
+function radioVisualPlaying(on){radioState.playing=on;radioVisual.classList.toggle("is-playing",on&&!radioReducedMotion);$("#radioState").textContent=on?"TRANSMITINDO / OFICIAL":radioState.trackId?"PLAYER EM ESPERA":"NO AR? A CONFIRMAR";$("#radioPlay").textContent=on?"Ⅱ PAUSAR":"▶ REPRODUZIR";if(!on)radioStopProgress();}
+function radioStartProgress(){radioStopProgress();radioState.progressTimer=setInterval(()=>{if(!radioState.player||!radioState.playing)return;try{const duration=radioState.player.getDuration(),current=radioState.player.getCurrentTime();$("#radioProgress").style.width=duration>0?`${Math.min(100,current/duration*100)}%`:"0%";$("#radioCurrentTime").textContent=radioFormatTime(current);$("#radioDuration").textContent=radioFormatTime(duration);}catch(e){}},1000);}
+function radioRenderPlaylist(){
+ const list=$("#radioPlaylist");list.innerHTML="";const tracks=radioTracks();$("#radioCategoryTitle").textContent=RADIO_CATEGORIES[radioState.category].title;$("#radioTrackCount").textContent=`${String(tracks.length).padStart(2,"0")} FAIXAS`;
+ tracks.forEach((track,index)=>{const button=document.createElement("button");button.type="button";button.className="radio-track";button.dataset.trackId=track.id;button.setAttribute("aria-current",String(track.id===radioState.trackId));const num=document.createElement("span");num.className="radio-track-num";num.textContent=String(index+1).padStart(2,"0");const info=document.createElement("span");const title=document.createElement("strong");title.textContent=track.title;const artist=document.createElement("small");artist.textContent=track.artist;info.append(title,artist);const status=document.createElement("span");status.className="radio-track-status";status.textContent=track.videoId?"EMBED":"ID PENDENTE";button.append(num,info,status);button.addEventListener("click",()=>radioSelect(track.id));list.appendChild(button);});
+}
+function radioUpdateSelected(){
+ const track=radioCurrent();$$(".radio-track",$("#radioPlaylist")).forEach(b=>b.setAttribute("aria-current",String(b.dataset.trackId===radioState.trackId)));
+ $("#radioPlay").disabled=!track||!track.videoId;$("#radioNext").disabled=!track;const open=$("#radioOpen");if(open){open.hidden=!track||!!track.videoId; if(track){open.href=radioSearchUrl(track);}}
+ if(!track){$("#radioTitle").textContent="Selecione uma faixa";$("#radioArtist").textContent="";return;}
+ $("#radioTitle").textContent=track.title;$("#radioArtist").textContent=track.artist+(track.videoId?" · player oficial incorporado":" · incorporação ainda não confirmada");$("#radioProgress").style.width="0%";$("#radioCurrentTime").textContent="--:--";$("#radioDuration").textContent="--:--";
+}
+function radioShowPlaceholder(track){
+ const player=$("#radioPlayer");if(radioState.player){try{radioState.player.destroy();}catch(e){}radioState.player=null;}
+ const label=track&&track.videoId?"PLAYER OFICIAL PRONTO":"PLAYER OFICIAL A CONFIRMAR";
+ const desc=track&&track.videoId?"O player oficial será carregado aqui. Aperte reproduzir para ouvir a gravação real.":"Não vou inventar um ID nem tocar um beat falso. Esta faixa fica no catálogo até confirmar uma incorporação oficial.";
+ player.innerHTML=`<div class="radio-placeholder"><div><div class="radio-glyph">♫ BR! ♫</div><strong>${label}</strong><p>${desc}</p></div></div>`;
+}
+function radioSelectCategory(category){if(!RADIO_CATEGORIES[category])return;if(radioState.player){try{radioState.player.stopVideo();}catch(e){}}radioVisualPlaying(false);radioState.category=category;$("[data-radio-cat]")&&$$('[data-radio-cat]').forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.radioCat===category)));radioSelect(radioTracks()[0].id);radioRenderPlaylist();}
+function radioSelect(id){
+ const track=RADIO_TRACKS.find(t=>t.id===id);if(!track)return;if(radioState.player){try{radioState.player.stopVideo();}catch(e){}try{radioState.player.destroy();}catch(e){}radioState.player=null;}radioVisualPlaying(false);radioState.trackId=id;radioState.category=track.category;$$('[data-radio-cat]').forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.radioCat===track.category)));radioRenderPlaylist();radioUpdateSelected();radioShowPlaceholder(track);
+ if(track.videoId){radioMessage("Faixa selecionada. O player oficial do YouTube tocará a gravação real dentro do site.");radioEnsureApi();if(radioState.apiReady)radioCreatePlayer(track);}
+ else{radioMessage("Esta faixa continua na playlist, mas ainda não há um ID de vídeo oficial confirmado para incorporar. Nenhum beat sintetizado será usado como substituto.");}
+}
+function radioEnsureApi(){if(radioState.apiReady||radioState.apiLoading)return;radioState.apiLoading=true;if(window.YT&&window.YT.Player){radioOnApiReady();return;}const prior=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=function(){if(typeof prior==="function")prior();radioOnApiReady();};if(!document.querySelector('script[data-youtube-iframe-api]')){const script=document.createElement("script");script.src="https://www.youtube.com/iframe_api";script.async=true;script.dataset.youtubeIframeApi="true";script.onerror=()=>{radioState.apiLoading=false;radioMessage("Não foi possível carregar o player oficial agora. Tente novamente quando estiver conectado.");};document.head.appendChild(script);}}
+function radioCreatePlayer(track){if(!track||!track.videoId||!window.YT||!YT.Player)return;const holder=document.createElement("div");holder.id="radioYoutubePlayer";$("#radioPlayer").replaceChildren(holder);const secureOrigin=(location.protocol==="https:"||location.protocol==="http:")?location.origin:"";const playerVars={controls:1,playsinline:1,rel:0,enablejsapi:1};if(secureOrigin)playerVars.origin=secureOrigin;radioState.player=new YT.Player("radioYoutubePlayer",{width:"100%",height:"100%",videoId:track.videoId,playerVars,events:{onReady:event=>{event.target.setVolume(radioState.volume);if(radioState.playRequested){radioState.playRequested=false;event.target.playVideo();}else radioMessage("Player oficial pronto. Aperte reproduzir para ouvir a gravação original.");},onStateChange:radioOnPlayerState,onError:event=>{radioVisualPlaying(false);const localFile=location.protocol==="file:";if(event.data===153){radioMessage(localFile?"Erro 153: o HTML está aberto como arquivo local e o YouTube não recebeu a identificação de origem necessária. Publique este arquivo em HTTPS (GitHub Pages ou Cloudflare Pages) e teste novamente.":"Erro 153: o YouTube não recebeu a identificação de origem necessária. Verifique se a página está publicada em HTTPS e se o navegador não está bloqueando o Referer.");}else{radioMessage("O YouTube bloqueou a incorporação desta faixa (código "+event.data+"). O restante do site continua funcionando.");}const open=$("#radioOpen");if(open){open.hidden=false;open.href=radioSearchUrl(radioCurrent());}}}});}
+function radioOnApiReady(){radioState.apiLoading=false;radioState.apiReady=true;const track=radioCurrent();if(track&&track.videoId&&!radioState.player)radioCreatePlayer(track);}
+function radioOnPlayerState(event){if(event.data===YT.PlayerState.PLAYING){radioVisualPlaying(true);radioStartProgress();radioMessage("Tocando a gravação real pelo player oficial incorporado.");}else if(event.data===YT.PlayerState.PAUSED){radioVisualPlaying(false);radioMessage("Faixa pausada.");}else if(event.data===YT.PlayerState.ENDED){radioVisualPlaying(false);$("#radioProgress").style.width="100%";radioMessage("A faixa terminou.");radioAdvance(true);}else if(event.data===YT.PlayerState.BUFFERING){$("#radioState").textContent="CARREGANDO…";radioMessage("O player oficial está carregando a música.");}else if(event.data===YT.PlayerState.CUED){radioVisualPlaying(false);$("#radioState").textContent="FAIXA PREPARADA";}}
+function radioPlay(){const track=radioCurrent();if(!track)return;if(!track.videoId){radioMessage("Ainda não há uma incorporação oficial confirmada para esta faixa. Não será substituída por um beat falso.");return;}radioState.playRequested=true;radioEnsureApi();if(radioState.player&&radioState.apiReady){try{radioState.player.setVolume(radioState.volume);radioState.player.playVideo();radioState.playRequested=false;radioMessage("Solicitando reprodução da gravação original…");}catch(e){radioMessage("O player ainda está inicializando. Tente novamente em instantes.");}}else radioMessage("Carregando o player oficial. Aperte reproduzir novamente se necessário.");}
+function radioAdvance(autoplay=false){const tracks=radioTracks();if(!tracks.length)return;const i=tracks.findIndex(t=>t.id===radioState.trackId);let next;if(radioState.shuffle&&tracks.length>1){const options=tracks.filter(t=>t.id!==radioState.trackId);next=options[Math.floor(Math.random()*options.length)];}else next=tracks[(i+1)%tracks.length];radioSelect(next.id);if(autoplay&&next.videoId){radioState.playRequested=true;if(radioState.player&&radioState.apiReady){try{radioState.player.playVideo();radioState.playRequested=false;}catch(e){}}}}
+$$('[data-radio-cat]').forEach(button=>button.addEventListener("click",()=>radioSelectCategory(button.dataset.radioCat)));
+$("#radioPlay").addEventListener("click",()=>{if(radioState.playing&&radioState.player){try{radioState.player.pauseVideo();}catch(e){}return;}radioPlay();});
+$("#radioNext").addEventListener("click",()=>radioAdvance(false));
+$("#radioShuffle").addEventListener("click",()=>{radioState.shuffle=!radioState.shuffle;$("#radioShuffle").setAttribute("aria-pressed",String(radioState.shuffle));$("#radioShuffle").textContent=radioState.shuffle?"⤨ ALEATÓRIO: ON":"⤨ ALEATÓRIO: OFF";radioMessage(radioState.shuffle?"Modo aleatório ativo dentro da categoria atual.":"Modo aleatório desligado: a lista seguirá sua ordem.");});
+$("#radioVolume").addEventListener("input",event=>{radioState.volume=Number(event.target.value);$("#radioVolumeValue").textContent=event.target.value+"%";if(radioState.player&&radioState.apiReady){try{radioState.player.setVolume(radioState.volume);}catch(e){}}});
+radioRenderPlaylist();radioUpdateSelected();radioSelect(radioState.trackId);
+
+/* BRAINROT ARENA — jogo de coleta e esquiva */
+const arena={running:false,score:0,time:30,best:0,x:50,y:55,character:"tung",tokens:[],hazards:[],keys:new Set(),last:0,spawn:0,hazardSpawn:0,raf:0,abilityUntil:0,shield:0,abilityReady:true,magnetUntil:0};
+const arenaWorld=$("#arenaWorld"),arenaPlayer=$("#arenaPlayer");
+function arenaSay(text){$("#arenaMessage").textContent=text;}
+function arenaSetScore(){ $("#arenaScore").textContent=arena.score;$("#arenaTime").textContent=arena.time+"s";$("#arenaBest").textContent=arena.best;}
+function arenaRenderPlayer(){
+ const card=$(`[data-brainrot="${arena.character}"]`),svg=card?.querySelector(".brainrot-svg");
+ if(svg){const clone=svg.cloneNode(true);clone.removeAttribute("role");clone.setAttribute("aria-hidden","true");arenaPlayer.replaceChildren(clone);}
+ arenaPlayer.style.left=arena.x+"%";arenaPlayer.style.top=arena.y+"%";arenaPlayer.classList.toggle("shielded",arena.shield>0);
+ $$("[data-arena-character]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.arenaCharacter===arena.character)));
+ const labels={tung:"ATIVAR ESCUDO",tralalero:"ATIVAR DASH",bombardiro:"LIMPAR NPCs",ballerina:"ATIVAR ÍMÃ DE AURA"};
+ $("#arenaAbility").textContent=labels[arena.character]||"HABILIDADE ESPECIAL";
+}
+function arenaPlace(el,x,y){el.style.left=x+"%";el.style.top=y+"%";}
+function arenaClearObjects(){arena.tokens.forEach(o=>o.el.remove());arena.hazards.forEach(o=>o.el.remove());arena.tokens=[];arena.hazards=[];}
+function arenaSpawnToken(){
+ const el=document.createElement("div");el.className="arena-entity arena-token";el.textContent=Math.random()<.2?"67":"✳";const obj={el,x:7+Math.random()*86,y:10+Math.random()*78};arenaPlace(el,obj.x,obj.y);arenaWorld.appendChild(el);arena.tokens.push(obj);
+}
+function arenaSpawnHazard(){
+ const el=document.createElement("div");el.className="arena-entity arena-hazard";el.textContent="NPC";const obj={el,x:7+Math.random()*86,y:10+Math.random()*78,phase:Math.random()*6.28};arenaPlace(el,obj.x,obj.y);arenaWorld.appendChild(el);arena.hazards.push(obj);
+}
+function arenaEnd(win){
+ arena.running=false;cancelAnimationFrame(arena.raf);arena.keys.clear();
+ if(arena.score>arena.best){arena.best=arena.score;try{localStorage.setItem("brainrotArenaBest",String(arena.best));}catch(e){}}
+ arenaSetScore();$("#arenaOverlay").classList.remove("hidden");
+ $("#arenaOverlayTitle").textContent=win?"AURA APROVADA (MAIS OU MENOS)":"FIM DE EXPEDIENTE";
+ $("#arenaOverlayText").textContent=win?`Você fez ${arena.score} pontos. O departamento está desconfiado.`:`Partida encerrada com ${arena.score} pontos. Os NPCs vão colocar isso no relatório.`;
+ $("#arenaStart").textContent="JOGAR DE NOVO ↗";$("#arenaAbility").disabled=true;
+ arenaSay("Partida encerrada. Você pode tentar de novo ou trocar de personagem.");
+}
+function arenaStart(){
+ arenaEndCleanup();
+ arena.running=true;arena.score=0;arena.time=30;arena.x=50;arena.y=55;arena.last=performance.now();arena.spawn=0;arena.hazardSpawn=0;arena.abilityUntil=0;arena.shield=0;arena.abilityReady=true;arena.magnetUntil=0;
+ $("#arenaOverlay").classList.add("hidden");$("#arenaAbility").disabled=false;$("#arenaStart").textContent="JOGAR DE NOVO ↗";
+ arenaRenderPlayer();arenaSetScore();arenaSay("VALENDO! Colete aura e fuja dos NPCs rosa.");arena.raf=requestAnimationFrame(arenaLoop);
+}
+function arenaEndCleanup(){cancelAnimationFrame(arena.raf);arenaClearObjects();arena.keys.clear();}
+function arenaAbility(){
+ if(!arena.running)return;
+ const now=performance.now();if(!arena.abilityReady){arenaSay("Habilidade recarregando. A entidade precisa respirar.");return;}
+ arena.abilityReady=false;
+ if(arena.character==="tung"){arena.shield=now+4500;arenaSay("ESCUDO DE MADEIRA ATIVO: um contato com NPC será ignorado.");}
+ if(arena.character==="tralalero"){arena.abilityUntil=now+1700;arenaSay("DASH TRALALERO: aceleração máxima por 1,7 segundo.");}
+ if(arena.character==="bombardiro"){arena.hazards.forEach(h=>h.el.remove());arena.hazards=[];arena.score+=3;arenaSay("ESPAÇO AÉREO LIMPO. +3 pontos de compensação.");}
+ if(arena.character==="ballerina"){arena.magnetUntil=now+5000;arenaSay("ÍMÃ DE AURA ATIVO: os tokens próximos vêm até você.");}
+ arenaRenderPlayer();arenaSetScore();setTimeout(()=>{arena.abilityReady=true;if(arena.running)arenaSay("Habilidade pronta novamente. Use com sabedoria duvidosa.");},6500);
+}
+function arenaLoop(now){
+ if(!arena.running)return;
+ const delta=Math.min(.04,(now-arena.last)/1000||.016);arena.last=now;
+ const speed=arena.abilityUntil>now?42:arena.character==="tralalero"?29:25;
+ let dx=0,dy=0;if(arena.keys.has("left")||arena.keys.has("a")||arena.keys.has("arrowleft"))dx--;if(arena.keys.has("right")||arena.keys.has("d")||arena.keys.has("arrowright"))dx++;if(arena.keys.has("up")||arena.keys.has("w")||arena.keys.has("arrowup"))dy--;if(arena.keys.has("down")||arena.keys.has("s")||arena.keys.has("arrowdown"))dy++;
+ const norm=Math.hypot(dx,dy)||1;arena.x=Math.max(5,Math.min(95,arena.x+dx/norm*speed*delta));arena.y=Math.max(8,Math.min(92,arena.y+dy/norm*speed*delta));arenaRenderPlayer();
+ arena.spawn+=delta;arena.hazardSpawn+=delta;
+ if(arena.spawn>.8){arena.spawn=0;arenaSpawnToken();}
+ if(arena.hazardSpawn>1.15){arena.hazardSpawn=0;arenaSpawnHazard();}
+ const rect=arenaWorld.getBoundingClientRect(),px=arena.x/100*rect.width,py=arena.y/100*rect.height;
+ arena.tokens=arena.tokens.filter(o=>{
+  const ox=o.x/100*rect.width,oy=o.y/100*rect.height,dist=Math.hypot(px-ox,py-oy);
+  if(arena.magnetUntil>now&&dist<150){o.x+=(arena.x-o.x)*.08;o.y+=(arena.y-o.y)*.08;arenaPlace(o.el,o.x,o.y);}
+  if(dist<32){o.el.remove();arena.score+=o.el.textContent==="67"?5:1;arenaSetScore();sound("good");return false;}return true;
+ });
+ arena.hazards=arena.hazards.filter(o=>{
+  o.phase+=delta*1.8;o.x+=Math.sin(o.phase)*delta*5;arenaPlace(o.el,o.x,o.y);
+  const ox=o.x/100*rect.width,oy=o.y/100*rect.height;
+  if(Math.hypot(px-ox,py-oy)<36){
+   o.el.remove();
+   if(arena.shield>now){arena.shield=0;arenaSay("ESCUDO ABSORVEU O NPC. A madeira venceu a burocracia.");arenaRenderPlayer();}
+   else{arena.score=Math.max(0,arena.score-2);arena.time=Math.max(0,arena.time-2);arenaWorld.classList.remove("is-hit");void arenaWorld.offsetWidth;arenaWorld.classList.add("is-hit");arenaSay("COLISÃO COM NPC: -2 aura e -2 segundos.");arenaSetScore();sound("bad");}
+   return false;
+  }return true;
+ });
+ arena.time=Math.max(0,30-Math.floor((now-arena.startedAt)/1000));arenaSetScore();
+ if(arena.time<=0){arenaEnd(true);return;}
+ arena.raf=requestAnimationFrame(arenaLoop);
+}
+$$("[data-arena-character]").forEach(button=>button.addEventListener("click",()=>{if(arena.running){arenaSay("Trocar de entidade só entre partidas. O RH exige consistência.");return;}arena.character=button.dataset.arenaCharacter;arenaRenderPlayer();arenaSay("Selecionado. A habilidade especial está no painel ao lado.");}));
+$("#arenaStart").addEventListener("click",()=>{arena.startedAt=performance.now();arenaStart();});
+$("#arenaRestart").addEventListener("click",()=>{arena.startedAt=performance.now();arenaStart();});
+$("#arenaAbility").addEventListener("click",arenaAbility);
+window.addEventListener("keydown",event=>{
+ const map={ArrowUp:"up",ArrowDown:"down",ArrowLeft:"left",ArrowRight:"right",w:"up",a:"left",s:"down",d:"right",W:"up",A:"left",S:"down",D:"right"};
+ if(map[event.key]&&$("#arena").contains(document.activeElement)){event.preventDefault();arena.keys.add(map[event.key]);}
+ if(event.code==="Space"&&$("#arena").contains(document.activeElement)){event.preventDefault();arenaAbility();}
+});
+window.addEventListener("keyup",event=>{const map={ArrowUp:"up",ArrowDown:"down",ArrowLeft:"left",ArrowRight:"right",w:"up",a:"left",s:"down",d:"right",W:"up",A:"left",S:"down",D:"right"};if(map[event.key])arena.keys.delete(map[event.key]);});
+$$("[data-arena-dir]").forEach(button=>{
+ const dir=button.dataset.arenaDir;const down=e=>{e.preventDefault();arena.keys.add(dir);};const up=e=>{e.preventDefault();arena.keys.delete(dir);};
+ button.addEventListener("pointerdown",down);["pointerup","pointercancel","pointerleave"].forEach(type=>button.addEventListener(type,up));
+});
+try{arena.best=Math.max(0,Number(localStorage.getItem("brainrotArenaBest"))||0);}catch(e){}
+arenaRenderPlayer();arenaSetScore();
+
+/* Interações exclusivas dos quatro brainrots, sem remover o sistema de aura/log/conquistas. *//* Interações exclusivas dos quatro brainrots, sem remover o sistema de aura/log/conquistas. */
+const brainrotState={tung:0,tralalero:0,bombardiro:0,ballerina:0,lastFlight:0};
+function brainrotReact(card,key){
+ const count=++brainrotState[key];card.classList.remove("is-reacting");void card.offsetWidth;card.classList.add("is-reacting");
+ setTimeout(()=>card.classList.remove("is-reacting"),520);
+ const special=(key==="tung"&&count%3===0)||(key==="tralalero"&&count%4===0)||(key==="ballerina"&&count%3===0);
+ if(special)card.classList.add("is-special");
+ const effects={
+  tung:["TUNG DETECTADO","A entidade de madeira bateu o ponto. O RH está com medo.","🪵"],
+  tralalero:["TRÊS PERNAS, ZERO PLANO","O tubarão entrou correndo e saiu sem explicar o motivo.","🦈"],
+  bombardiro:["TORRE DE CONTROLE","Bombardiro pediu autorização para cruzar o seu feed.","✈️"],
+  ballerina:["BALLET CATASTRÓFICO","A xícara fez um plié e derrubou a dignidade no chão.","☕"]
+ };
+ const e=effects[key];
+ if(key==="tung"){
+  sound(count%2?"tap":"bad");
+  if(count%3===0){toast("COMBO TUNG TUNG","Três batidas. Nenhuma reunião foi marcada.");changeAura(13,"Completou o combo de batidas do Tung Tung.","🪵");}
+  else toast(e[0],e[1]);
+ }else if(key==="tralalero"){
+  sound(count%2?"good":"six");
+  if(count%4===0){toast("TRALALERO COMBO X4","O tubarão desbloqueou a corrida de três pernas.");changeAura(17,"Sobreviveu ao combo de três pernas do Tralalero.","🦈");}
+  else toast(e[0],e[1]);
+ }else if(key==="bombardiro"){
+  const now=Date.now();
+  if(now-brainrotState.lastFlight<3000){toast("TORRE OCUPADA","O espaço aéreo ainda está em recuperação. Aguarde um pouco.");return;}
+  brainrotState.lastFlight=now;sound("bad");card.animate([{transform:"translateX(0) rotate(0)"},{transform:"translateX(35px) translateY(-9px) rotate(3deg)"},{transform:"translateX(-110vw) translateY(-35px) rotate(-8deg)"},{transform:"translateX(0)"}],{duration:1000,easing:"ease-in-out"});
+  toast("VOO AUTORIZADO (POR NINGUÉM)","O crocodilo passou pelo seu feed e esqueceu o destino.");
+  changeAura(9,"Sobreviveu à passagem aérea do Bombardiro.","✈️");
+ }else{
+  sound("good");
+  if(count%3===0){toast("GRANDE FINALE","Ballerina Cappuccina girou três vezes. O café continua frio.");changeAura(11,"Aplaudiu o combo de dança da Ballerina Cappuccina.","☕");}
+  else toast(e[0],e[1]);
+ }
+ log(e[2],"Interagiu com "+card.querySelector("strong").textContent,`Interação #${count} da entidade.`);
+}
+$$("[data-brainrot]").forEach(card=>card.addEventListener("click",()=>brainrotReact(card,card.dataset.brainrot)));
+
 updateAura();
 })();
 </script>
 </body>
-                                                                                            </html>
+</html>
