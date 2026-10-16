@@ -278,6 +278,14 @@ body.moon-mode::before{opacity:.05}
 @media(max-width:760px){.arena-shell{grid-template-columns:1fr}.arena-world{min-height:280px;aspect-ratio:4/3}.arena-player{width:56px;height:56px}.arena-side{display:grid;grid-template-columns:1fr}.arena-character-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.arena-token{animation:none}}
 
+
+/* CLICKER DE AURA + ANALÓGICO VIRTUAL */
+.aura-clicker{margin-top:16px;padding:14px;border:1px solid #d7ff3644;border-radius:14px;background:linear-gradient(135deg,#d7ff3609,#7c7bff0c)}
+.clicker-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}.clicker-head strong{font-size:13px}.clicker-stat{font-size:11px;color:var(--acid);font-weight:900}
+.clicker-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.clicker-upgrade{min-width:0;border:1px solid #ffffff20;background:#ffffff07;border-radius:11px;padding:10px;text-align:left;color:var(--text);display:flex;flex-direction:column;gap:5px;cursor:pointer}.clicker-upgrade strong{font-size:11px}.clicker-upgrade small{font-size:10px;color:var(--muted);line-height:1.3}.clicker-upgrade em{font-style:normal;color:var(--acid);font-size:10px;font-weight:1000}.clicker-upgrade:disabled{opacity:.42;cursor:not-allowed}.clicker-note{font-size:10px;color:var(--muted);margin:9px 0 0}
+.arena-controls{display:flex;justify-content:center;align-items:center;margin-top:14px;min-height:148px}.arena-joystick{position:relative;width:138px;height:138px;border-radius:50%;border:2px solid #d7ff3655;background:radial-gradient(circle,#ffffff0c 0 28%,#d7ff3612 29% 100%);box-shadow:inset 0 0 24px #d7ff3610,0 0 22px #d7ff3610;touch-action:none;user-select:none;-webkit-user-select:none;display:block}.arena-joystick::before{content:"";position:absolute;inset:18%;border:1px dashed #d7ff3633;border-radius:50%;pointer-events:none}.arena-joystick-thumb{position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;transform:translate(-50%,-50%);background:linear-gradient(145deg,#eaff9a,#a4c928);border:3px solid #111;box-shadow:0 4px 0 #111,0 0 20px #d7ff3655;display:grid;place-items:center;color:#111;font-weight:1000;font-size:19px;pointer-events:none}.arena-joystick-label{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:8px;letter-spacing:.12em;font-weight:1000;color:#d7ff3699;pointer-events:none}
+@media(max-width:520px){.clicker-actions{grid-template-columns:1fr}.clicker-upgrade{display:grid;grid-template-columns:1fr auto;align-items:center}.clicker-upgrade small{grid-column:1}.clicker-upgrade em{grid-column:2;grid-row:1 / span 2}}
+
 </style>
 </head>
 <body>
@@ -316,7 +324,8 @@ body.moon-mode::before{opacity:.05}
    <div class="aura-top"><span class="pill">● avaliação ao vivo</span><span id="auraStatus" class="tiny-note" style="margin:0">perfil recém-criado</span></div>
    <div class="score" id="auraScore" aria-live="polite">67</div><div class="rank" id="auraRank">Estagiário do Carisma</div><p class="rank-desc" id="auraDesc">Você entrou com energia de quem fala “é dentro” e depois pergunta onde fica dentro.</p>
    <div class="meter"><div class="meter-fill" id="auraMeter"></div></div><div class="meter-label"><span>NPC de fundo</span><span>lenda urbana</span></div>
-   <div class="action-row"><button class="btn btn-primary" id="auraGain">+ AURA (talvez)</button><button class="btn" id="auraLose">TOMAR DECISÃO RUIM</button></div>
+   <div class="action-row"><button class="btn btn-primary" id="auraGain">✨ CLICAR PARA GANHAR AURA</button><button class="btn" id="auraLose">TOMAR DECISÃO RUIM</button></div>
+   <div class="aura-clicker" id="auraClicker"><div class="clicker-head"><strong>✨ AURA CLICKER</strong><span class="clicker-stat" id="clickerRate">+1 por clique · 0/s</span></div><div class="clicker-actions"><button class="clicker-upgrade" id="upgradeClick" type="button"><strong>🖱️ Clique reforçado</strong><small id="upgradeClickDesc">Aumenta a aura por clique.</small><em id="upgradeClickCost">10 aura</em></button><button class="clicker-upgrade" id="upgradeGenerator" type="button"><strong>⚙️ Gerador básico</strong><small id="upgradeGeneratorDesc">Produz aura enquanto a página estiver aberta.</small><em id="upgradeGeneratorCost">50 aura</em></button><button class="clicker-upgrade" id="upgradeMultiplier" type="button"><strong>✨ Multiplicador x2</strong><small id="upgradeMultiplierDesc">Duplica os ganhos do clicker.</small><em id="upgradeMultiplierCost">250 aura</em></button></div><p class="clicker-note">Sem produção offline. Fechou a página? Os geradores tiram folga.</p></div>
   </article>
   <article class="panel log-panel">
    <div class="log-head"><div><div class="kicker">histórico oficial</div><h3 style="margin:5px 0 0;font-size:22px;letter-spacing:-.05em">O que você aprontou</h3></div><span class="pill" id="actionCount">0 ocorrências</span></div>
@@ -440,10 +449,9 @@ body.moon-mode::before{opacity:.05}
     <div class="arena-entity arena-player" id="arenaPlayer" style="left:50%;top:55%"></div>
     <div class="arena-overlay" id="arenaOverlay"><div class="arena-overlay-card"><strong id="arenaOverlayTitle">SUA AURA ESTÁ EM PERIGO.</strong><p id="arenaOverlayText">Colete os tokens ✳, fuja dos NPCs cor-de-rosa e tente não virar figurante.</p><button class="btn btn-primary" id="arenaStart">INICIAR O CAOS ↗</button></div></div>
    </div>
-   <p class="arena-message" id="arenaMessage" aria-live="polite">Escolha um brainrot e aperte iniciar. Computadores: WASD ou setas. Celular: controles direcionais.</p>
-   <div class="arena-controls" aria-label="Controles direcionais do minigame">
-    <button class="arena-control-empty" tabindex="-1" aria-hidden="true">·</button><button data-arena-dir="up" aria-label="Mover para cima">▲</button><button class="arena-control-empty" tabindex="-1" aria-hidden="true">·</button>
-    <button data-arena-dir="left" aria-label="Mover para esquerda">◀</button><button data-arena-dir="down" aria-label="Mover para baixo">▼</button><button data-arena-dir="right" aria-label="Mover para direita">▶</button>
+   <p class="arena-message" id="arenaMessage" aria-live="polite">Escolha um brainrot e aperte iniciar. Computadores: WASD ou setas. Celular: arraste o analógico virtual. Computador: WASD ou setas.</p>
+   <div class="arena-controls" aria-label="Analógico virtual do minigame">
+    <div class="arena-joystick" id="arenaJoystick" role="application" aria-label="Arraste o analógico para movimentar o personagem"><div class="arena-joystick-thumb" id="arenaJoystickThumb">✦</div><span class="arena-joystick-label">ARRASTE PARA MOVER</span></div>
    </div>
   </article>
   <aside class="panel arena-side">
@@ -504,7 +512,7 @@ body.moon-mode::before{opacity:.05}
 const $ = (s, root=document) => root.querySelector(s);
 const $$ = (s, root=document) => [...root.querySelectorAll(s)];
 const state = {
- aura:67, actions:0, six:0, quizStep:0, quizScore:0, quizDone:false, audio:false, music:false,
+ aura:5, actions:0, six:0, quizStep:0, quizScore:0, quizDone:false, audio:false, music:false,
  secret:false, mode67:false, moon:false, finalUsed:false, achievements:new Set()
 };
 const ranks = [
@@ -604,12 +612,30 @@ function updateAura(){
  $("#auraStatus").textContent=state.aura<0?"perfil em observação":state.aura>400?"entidade detectada":"perfil sob análise";
 }
 function changeAura(delta,why,icon="✳"){
- const before=state.aura;state.aura=Math.max(-99,Math.min(999,state.aura+delta));
+ const before=state.aura;state.aura=Math.max(0,Math.min(1e15,state.aura+delta));
  updateAura();log(icon,why,`${delta>0?"+":""}${state.aura-before} aura · saldo atual: ${state.aura}`);
- sound(delta>=0?"good":"bad");unlock("aura");
+ sound(delta>=0?"good":"bad");unlock("aura");if(typeof clickerSave==="function"){clickerSave();clickerRender();}
  const rank=rankFor(state.aura);
  if(rank.title!==rankFor(before).title)toast("MUDANÇA DE CATEGORIA",`Você agora é: ${rank.title}. Não coloque no currículo.`);
 }
+// Clicker integrado ao saldo de aura existente; produção somente enquanto a página está aberta.
+const CLICKER_KEY="brainrotPremiumClicker_v1";
+const clicker={clickPower:1,generators:0,multiplier:1};
+function clickerLoad(){try{const saved=JSON.parse(localStorage.getItem(CLICKER_KEY)||"null");if(saved&&typeof saved==="object"){clicker.clickPower=Math.max(1,Number(saved.clickPower)||1);clicker.generators=Math.max(0,Number(saved.generators)||0);clicker.multiplier=Math.max(1,Number(saved.multiplier)||1);if(Number.isFinite(Number(saved.aura)))state.aura=Math.max(0,Number(saved.aura));}}catch(e){}}
+function clickerSave(){try{localStorage.setItem(CLICKER_KEY,JSON.stringify({aura:state.aura,clickPower:clicker.clickPower,generators:clicker.generators,multiplier:clicker.multiplier}));}catch(e){}}
+function clickerFmt(n){if(n>=1e12)return (n/1e12).toFixed(2).replace(/\.?0+$/,'')+"T";if(n>=1e9)return (n/1e9).toFixed(2).replace(/\.?0+$/,'')+"B";if(n>=1e6)return (n/1e6).toFixed(2).replace(/\.?0+$/,'')+"M";if(n>=1e3)return (n/1e3).toFixed(2).replace(/\.?0+$/,'')+"K";return Math.floor(n).toLocaleString("pt-BR");}
+function clickerCosts(){return {click:Math.floor(10*Math.pow(1.8,Math.max(0,clicker.clickPower-1))),generator:Math.floor(50*Math.pow(1.65,clicker.generators)),multiplier:Math.floor(250*Math.pow(4,Math.max(0,Math.log2(clicker.multiplier))))};}
+function clickerRender(){const c=clickerCosts();const rate=clicker.generators*clicker.multiplier;$("#clickerRate").textContent=`+${clickerFmt(clicker.clickPower*clicker.multiplier)} por clique · ${clickerFmt(rate)}/s`;
+ $("#upgradeClickCost").textContent=clickerFmt(c.click)+" aura";$("#upgradeGeneratorCost").textContent=clickerFmt(c.generator)+" aura";$("#upgradeMultiplierCost").textContent=clickerFmt(c.multiplier)+" aura";
+ $("#upgradeClickDesc").textContent=`Clique atual: +${clickerFmt(clicker.clickPower*clicker.multiplier)}. Próximo nível melhora a base.`;$("#upgradeGeneratorDesc").textContent=`${clicker.generators} gerador(es) · +${clickerFmt(rate)} aura/s.`;$("#upgradeMultiplierDesc").textContent=`Multiplicador atual: x${clicker.multiplier}. Próxima compra dobra.`;
+ $("#upgradeClick").disabled=state.aura<c.click;$("#upgradeGenerator").disabled=state.aura<c.generator;$("#upgradeMultiplier").disabled=state.aura<c.multiplier;}
+function clickerGain(reason){const amount=Math.max(1,Math.floor(clicker.clickPower*clicker.multiplier));changeAura(amount,reason||"Clicou para gerar aura.","✨");clickerRender();clickerSave();}
+$("#upgradeClick").addEventListener("click",()=>{const c=clickerCosts().click;if(state.aura<c)return;state.aura-=c;clicker.clickPower++;updateAura();log("🖱️","Upgrade comprado",`Clique reforçado nível ${clicker.clickPower}.`);sound("good");clickerRender();clickerSave();});
+$("#upgradeGenerator").addEventListener("click",()=>{const c=clickerCosts().generator;if(state.aura<c)return;state.aura-=c;clicker.generators++;updateAura();log("⚙️","Gerador comprado",`Geradores ativos: ${clicker.generators}.`);sound("good");clickerRender();clickerSave();});
+$("#upgradeMultiplier").addEventListener("click",()=>{const c=clickerCosts().multiplier;if(state.aura<c)return;state.aura-=c;clicker.multiplier*=2;updateAura();log("✨","Multiplicador comprado",`Multiplicador atual: x${clicker.multiplier}.`);sound("good");clickerRender();clickerSave();});
+clickerLoad();updateAura();clickerRender();clickerSave();
+setInterval(()=>{if(clicker.generators>0){const earned=clicker.generators*clicker.multiplier;state.aura=Math.min(1e15,state.aura+earned);updateAura();clickerRender();clickerSave();}},1000);
+
 function unlock(key){
  if(state.achievements.has(key))return;
  state.achievements.add(key);const el=$(`[data-ach="${key}"]`);if(el)el.classList.add("unlocked");
@@ -624,7 +650,7 @@ $("#audioToggle").addEventListener("click",()=>{
 });
 $("#enterBtn").addEventListener("click",()=>{sound("tap");$("#aura").scrollIntoView({behavior:"smooth"});toast("PROTOCOLO INICIADO","Sua ficha foi encaminhada ao setor de pombos.");log("📋","Aceitou a avaliação","Você assinou com um X emocional.");});
 $("#skipIntroBtn").addEventListener("click",()=>{sound("tap");$("#aura").scrollIntoView({behavior:"smooth"});toast("INTRODUÇÃO PULADA","A equipe de roteiro vai fingir que não ficou triste.");});
-$("#auraGain").addEventListener("click",()=>changeAura([7,11,13,17][state.actions%4],randomFrom(comments.gain),"✨"));
+$("#auraGain").addEventListener("click",()=>clickerGain(randomFrom(comments.gain)));
 $("#auraLose").addEventListener("click",()=>changeAura(-[9,14,21,33][state.actions%4],randomFrom(comments.lose),"📉"));
 function tap67(){
  state.six++;$("#sixCount").textContent=state.six;
@@ -760,7 +786,7 @@ $("#radioVolume").addEventListener("input",event=>{radioState.volume=Number(even
 radioRenderPlaylist();radioUpdateSelected();radioSelect(radioState.trackId);
 
 /* BRAINROT ARENA — jogo de coleta e esquiva */
-const arena={running:false,score:0,time:30,best:0,x:50,y:55,character:"tung",tokens:[],hazards:[],keys:new Set(),last:0,spawn:0,hazardSpawn:0,raf:0,abilityUntil:0,shield:0,abilityReady:true,magnetUntil:0};
+const arena={running:false,score:0,time:30,best:0,x:50,y:55,character:"tung",tokens:[],hazards:[],keys:new Set(),last:0,spawn:0,hazardSpawn:0,raf:0,abilityUntil:0,shield:0,abilityReady:true,magnetUntil:0,joyX:0,joyY:0,joystickActive:false};
 const arenaWorld=$("#arenaWorld"),arenaPlayer=$("#arenaPlayer");
 function arenaSay(text){$("#arenaMessage").textContent=text;}
 function arenaSetScore(){ $("#arenaScore").textContent=arena.score;$("#arenaTime").textContent=arena.time+"s";$("#arenaBest").textContent=arena.best;}
@@ -795,7 +821,7 @@ function arenaStart(){
  $("#arenaOverlay").classList.add("hidden");$("#arenaAbility").disabled=false;$("#arenaStart").textContent="JOGAR DE NOVO ↗";
  arenaRenderPlayer();arenaSetScore();arenaSay("VALENDO! Colete aura e fuja dos NPCs rosa.");arena.raf=requestAnimationFrame(arenaLoop);
 }
-function arenaEndCleanup(){cancelAnimationFrame(arena.raf);arenaClearObjects();arena.keys.clear();}
+function arenaEndCleanup(){cancelAnimationFrame(arena.raf);arenaClearObjects();arena.keys.clear();arena.joystickActive=false;arena.joyX=0;arena.joyY=0;const thumb=$("#arenaJoystickThumb");if(thumb){thumb.style.left="50%";thumb.style.top="50%";}}
 function arenaAbility(){
  if(!arena.running)return;
  const now=performance.now();if(!arena.abilityReady){arenaSay("Habilidade recarregando. A entidade precisa respirar.");return;}
@@ -810,7 +836,7 @@ function arenaLoop(now){
  if(!arena.running)return;
  const delta=Math.min(.04,(now-arena.last)/1000||.016);arena.last=now;
  const speed=arena.abilityUntil>now?42:arena.character==="tralalero"?29:25;
- let dx=0,dy=0;if(arena.keys.has("left")||arena.keys.has("a")||arena.keys.has("arrowleft"))dx--;if(arena.keys.has("right")||arena.keys.has("d")||arena.keys.has("arrowright"))dx++;if(arena.keys.has("up")||arena.keys.has("w")||arena.keys.has("arrowup"))dy--;if(arena.keys.has("down")||arena.keys.has("s")||arena.keys.has("arrowdown"))dy++;
+ let dx=arena.joystickActive?arena.joyX:0,dy=arena.joystickActive?arena.joyY:0;if(!arena.joystickActive){if(arena.keys.has("left")||arena.keys.has("a")||arena.keys.has("arrowleft"))dx--;if(arena.keys.has("right")||arena.keys.has("d")||arena.keys.has("arrowright"))dx++;if(arena.keys.has("up")||arena.keys.has("w")||arena.keys.has("arrowup"))dy--;if(arena.keys.has("down")||arena.keys.has("s")||arena.keys.has("arrowdown"))dy++;}
  const norm=Math.hypot(dx,dy)||1;arena.x=Math.max(5,Math.min(95,arena.x+dx/norm*speed*delta));arena.y=Math.max(8,Math.min(92,arena.y+dy/norm*speed*delta));arenaRenderPlayer();
  arena.spawn+=delta;arena.hazardSpawn+=delta;
  if(arena.spawn>.8){arena.spawn=0;arenaSpawnToken();}
@@ -845,10 +871,12 @@ window.addEventListener("keydown",event=>{
  if(event.code==="Space"&&$("#arena").contains(document.activeElement)){event.preventDefault();arenaAbility();}
 });
 window.addEventListener("keyup",event=>{const map={ArrowUp:"up",ArrowDown:"down",ArrowLeft:"left",ArrowRight:"right",w:"up",a:"left",s:"down",d:"right",W:"up",A:"left",S:"down",D:"right"};if(map[event.key])arena.keys.delete(map[event.key]);});
-$$("[data-arena-dir]").forEach(button=>{
- const dir=button.dataset.arenaDir;const down=e=>{e.preventDefault();arena.keys.add(dir);};const up=e=>{e.preventDefault();arena.keys.delete(dir);};
- button.addEventListener("pointerdown",down);["pointerup","pointercancel","pointerleave"].forEach(type=>button.addEventListener(type,up));
-});
+const joystick=$("#arenaJoystick"),joystickThumb=$("#arenaJoystickThumb");
+if(joystick&&joystickThumb){
+ const resetJoystick=()=>{arena.joystickActive=false;arena.joyX=0;arena.joyY=0;joystickThumb.style.left="50%";joystickThumb.style.top="50%";};
+ const moveJoystick=e=>{const r=joystick.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,max=r.width*.31;let dx=e.clientX-cx,dy=e.clientY-cy;const len=Math.hypot(dx,dy);if(len>max){dx=dx/len*max;dy=dy/len*max;}arena.joyX=dx/max;arena.joyY=dy/max;arena.joystickActive=Math.hypot(arena.joyX,arena.joyY)>.12;joystickThumb.style.left=`${50+dx/r.width*100}%`;joystickThumb.style.top=`${50+dy/r.height*100}%`;};
+ joystick.addEventListener("pointerdown",e=>{e.preventDefault();try{joystick.setPointerCapture(e.pointerId);}catch(_){}moveJoystick(e);});joystick.addEventListener("pointermove",e=>{if(e.buttons||e.pressure>0)moveJoystick(e);});joystick.addEventListener("pointerup",e=>{e.preventDefault();resetJoystick();});joystick.addEventListener("pointercancel",resetJoystick);joystick.addEventListener("lostpointercapture",resetJoystick);
+}
 try{arena.best=Math.max(0,Number(localStorage.getItem("brainrotArenaBest"))||0);}catch(e){}
 arenaRenderPlayer();arenaSetScore();
 
