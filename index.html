@@ -30,7 +30,9 @@ a{color:inherit}
 .nav a,.audio-toggle{white-space:nowrap;text-decoration:none;font-size:12px;font-weight:800;color:var(--muted);padding:9px 11px;border-radius:10px;border:1px solid transparent;background:transparent}
 .nav a:hover,.audio-toggle:hover{color:var(--ink);background:#ffffff0a;border-color:#ffffff16}
 .nav a.universe-nav{color:var(--acid);border-color:#d7ff3644;background:#d7ff3608;font-weight:1000}.nav a.universe-nav:hover{background:var(--acid);color:#111}
+.nav a.world-nav{color:#ff78cf;border-color:#ff4f9a44;background:#ff4f9a0a;font-weight:1000}.nav a.world-nav:hover{background:#ff4f9a;color:#180912}
 .universe-hero-cta{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-color:#d7ff3688;color:var(--acid);background:linear-gradient(110deg,#d7ff3614,#7c7bff12);font-weight:1000;box-shadow:0 0 24px #d7ff3612;transition:transform .18s,box-shadow .18s,background .18s}.universe-hero-cta:hover{transform:translateY(-2px);background:#d7ff3622;box-shadow:0 8px 30px #d7ff3620}
+.world-hero-cta{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid #ff4f9a88;color:#ff78cf;background:linear-gradient(110deg,#ff4f9a18,#7c7bff12);font-weight:1000;box-shadow:0 0 24px #ff4f9a12;transition:transform .18s,box-shadow .18s,background .18s}.world-hero-cta:hover{transform:translateY(-2px);background:#ff4f9a22;box-shadow:0 8px 30px #ff4f9a20}
 .audio-toggle[aria-pressed="true"]{color:var(--acid);border-color:#d7ff3655}
 main{max-width:1180px;margin:auto;padding:0 clamp(14px,4vw,42px) 80px}
 .hero{position:relative;min-height:620px;padding:clamp(44px,8vw,100px) 0 50px;display:grid;grid-template-columns:1.08fr .92fr;gap:22px;align-items:center}
@@ -293,7 +295,7 @@ body.moon-mode::before{opacity:.05}
 <header class="topbar">
   <a class="brand" href="#inicio" aria-label="Brainrot Premium, início"><span class="brand-mark">B!</span><span>BRAINROT PREMIUM™</span></a>
   <nav class="nav" aria-label="Navegação principal">
-    <a href="#aura">Aura</a><a href="#universo67">67</a><a href="#radio">Radio</a><a href="#brainrots">Brainrots</a><a href="#arena">Arena</a><a href="universe.html" class="universe-nav">Universe ↗</a><a href="#detector">Detector</a><a href="#suspeitos">Suspeitos</a>
+    <a href="#aura">Aura</a><a href="#universo67">67</a><a href="#radio">Radio</a><a href="#brainrots">Brainrots</a><a href="#arena">Arena</a><a href="universe.html" class="universe-nav">Universe ↗</a><a href="world.html" class="world-nav">World Chaos ↗</a><a href="#detector">Detector</a><a href="#suspeitos">Suspeitos</a>
   </nav>
   <div style="display:flex;gap:4px;align-items:center">
     <button class="audio-toggle" id="musicToggle" aria-pressed="false" title="Ativar ou desativar a trilha ambiente original do site, separada da rádio">♫ Loop: off</button>
@@ -306,7 +308,7 @@ body.moon-mode::before{opacity:.05}
   <div class="eyebrow"><span class="pulse"></span> departamento de decisões duvidosas</div>
   <h1>SUA AURA<br><span class="outline">FOI</span><br>TERCEIRIZADA.</h1>
   <p class="hero-copy">Um laboratório de <strong>brainrot premium</strong> que mede o imensurável, julga o injustificável e transforma seu tempo livre em um processo administrativo.</p>
-  <div class="hero-actions"><button class="btn btn-primary" id="enterBtn">ACEITO SER AVALIADO ↗</button><a class="btn universe-hero-cta" href="universe.html">🌌 ENTRAR NO BRAINROT UNIVERSE ↗</a><button class="btn" id="skipIntroBtn">PULAR A INTRODUÇÃO (covardia)</button></div>
+  <div class="hero-actions"><button class="btn btn-primary" id="enterBtn">ACEITO SER AVALIADO ↗</button><a class="btn universe-hero-cta" href="universe.html">🌌 ENTRAR NO BRAINROT UNIVERSE ↗</a><a class="btn world-hero-cta" href="world.html">💀 ENTRAR NO BRAINROT WORLD ↗</a><button class="btn" id="skipIntroBtn">PULAR A INTRODUÇÃO (covardia)</button></div>
   <p class="tiny-note">* Nenhuma aura foi reconhecida pelo INMETRO. Ainda.</p>
  </div>
  <div class="hero-art" aria-label="Mascote original do laboratório, uma criatura verde de expressão suspeita" role="img">
